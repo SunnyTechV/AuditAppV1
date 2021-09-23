@@ -1,0 +1,704 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form
+      name="editForm"
+      role="form"
+      novalidate
+      (ngSubmit)="save()"
+      [formGroup]="editForm"
+    >
+      <h2
+        id="jhi-audit-form-s-hosp-gen-info-heading"
+        data-cy="AuditFormSHospGenInfoCreateUpdateHeading"
+        jhiTranslate="auditAppV1App.auditFormSHospGenInfo.home.createOrEditLabel"
+      >
+        Create or edit a Audit Form S Hosp Gen Info
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label
+            class="form-control-label"
+            jhiTranslate="global.field.id"
+            for="field_id"
+            >ID</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="id"
+            id="field_id"
+            data-cy="id"
+            formControlName="id"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.hospName"
+            for="field_hospName"
+            >Hosp Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="hospName"
+            id="field_hospName"
+            data-cy="hospName"
+            formControlName="hospName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.hospType"
+            for="field_hospType"
+            >Hosp Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="hospType"
+            id="field_hospType"
+            data-cy="hospType"
+            formControlName="hospType"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.type"
+            for="field_type"
+            >Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="type"
+            id="field_type"
+            data-cy="type"
+            formControlName="type"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.subType"
+            for="field_subType"
+            >Sub Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="subType"
+            id="field_subType"
+            data-cy="subType"
+            formControlName="subType"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.formName"
+            for="field_formName"
+            >Form Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="formName"
+            id="field_formName"
+            data-cy="formName"
+            formControlName="formName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.inchargeName"
+            for="field_inchargeName"
+            >Incharge Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="inchargeName"
+            id="field_inchargeName"
+            data-cy="inchargeName"
+            formControlName="inchargeName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.hospAddress"
+            for="field_hospAddress"
+            >Hosp Address</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="hospAddress"
+            id="field_hospAddress"
+            data-cy="hospAddress"
+            formControlName="hospAddress"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.hospPhoneNo"
+            for="field_hospPhoneNo"
+            >Hosp Phone No</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="hospPhoneNo"
+            id="field_hospPhoneNo"
+            data-cy="hospPhoneNo"
+            formControlName="hospPhoneNo"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.normalBeds"
+            for="field_normalBeds"
+            >Normal Beds</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="normalBeds"
+            id="field_normalBeds"
+            data-cy="normalBeds"
+            formControlName="normalBeds"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.oxygenBeds"
+            for="field_oxygenBeds"
+            >Oxygen Beds</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="oxygenBeds"
+            id="field_oxygenBeds"
+            data-cy="oxygenBeds"
+            formControlName="oxygenBeds"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.ventilatorBeds"
+            for="field_ventilatorBeds"
+            >Ventilator Beds</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="ventilatorBeds"
+            id="field_ventilatorBeds"
+            data-cy="ventilatorBeds"
+            formControlName="ventilatorBeds"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.icuBeds"
+            for="field_icuBeds"
+            >Icu Beds</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="icuBeds"
+            id="field_icuBeds"
+            data-cy="icuBeds"
+            formControlName="icuBeds"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.onCylinderPatient"
+            for="field_onCylinderPatient"
+            >On Cylinder Patient</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="onCylinderPatient"
+            id="field_onCylinderPatient"
+            data-cy="onCylinderPatient"
+            formControlName="onCylinderPatient"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.onPipedBedsPatient"
+            for="field_onPipedBedsPatient"
+            >On Piped Beds Patient</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="onPipedBedsPatient"
+            id="field_onPipedBedsPatient"
+            data-cy="onPipedBedsPatient"
+            formControlName="onPipedBedsPatient"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.onNIV"
+            for="field_onNIV"
+            >On NIV</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="onNIV"
+            id="field_onNIV"
+            data-cy="onNIV"
+            formControlName="onNIV"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.onIntubated"
+            for="field_onIntubated"
+            >On Intubated</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="onIntubated"
+            id="field_onIntubated"
+            data-cy="onIntubated"
+            formControlName="onIntubated"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.jumboSystemInstalledType"
+            for="field_jumboSystemInstalledType"
+            >Jumbo System Installed Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="jumboSystemInstalledType"
+            id="field_jumboSystemInstalledType"
+            data-cy="jumboSystemInstalledType"
+            formControlName="jumboSystemInstalledType"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.availableCylinderTypeD7"
+            for="field_availableCylinderTypeD7"
+            >Available Cylinder Type D 7</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="availableCylinderTypeD7"
+            id="field_availableCylinderTypeD7"
+            data-cy="availableCylinderTypeD7"
+            formControlName="availableCylinderTypeD7"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.availableCylinderTypeB"
+            for="field_availableCylinderTypeB"
+            >Available Cylinder Type B</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="availableCylinderTypeB"
+            id="field_availableCylinderTypeB"
+            data-cy="availableCylinderTypeB"
+            formControlName="availableCylinderTypeB"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.cylinderAgencyName"
+            for="field_cylinderAgencyName"
+            >Cylinder Agency Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="cylinderAgencyName"
+            id="field_cylinderAgencyName"
+            data-cy="cylinderAgencyName"
+            formControlName="cylinderAgencyName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.cylinderAgencyAddress"
+            for="field_cylinderAgencyAddress"
+            >Cylinder Agency Address</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="cylinderAgencyAddress"
+            id="field_cylinderAgencyAddress"
+            data-cy="cylinderAgencyAddress"
+            formControlName="cylinderAgencyAddress"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.availableLMOCapacityKL"
+            for="field_availableLMOCapacityKL"
+            >Available LMO Capacity KL</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="availableLMOCapacityKL"
+            id="field_availableLMOCapacityKL"
+            data-cy="availableLMOCapacityKL"
+            formControlName="availableLMOCapacityKL"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.lmoSupplierName"
+            for="field_lmoSupplierName"
+            >Lmo Supplier Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lmoSupplierName"
+            id="field_lmoSupplierName"
+            data-cy="lmoSupplierName"
+            formControlName="lmoSupplierName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.lmoSupplierFrequency"
+            for="field_lmoSupplierFrequency"
+            >Lmo Supplier Frequency</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="lmoSupplierFrequency"
+            id="field_lmoSupplierFrequency"
+            data-cy="lmoSupplierFrequency"
+            formControlName="lmoSupplierFrequency"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.lastLmoSuppliedQuantity"
+            for="field_lastLmoSuppliedQuantity"
+            >Last Lmo Supplied Quantity</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="lastLmoSuppliedQuantity"
+            id="field_lastLmoSuppliedQuantity"
+            data-cy="lastLmoSuppliedQuantity"
+            formControlName="lastLmoSuppliedQuantity"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.remark"
+            for="field_remark"
+            >Remark</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="remark"
+            id="field_remark"
+            data-cy="remark"
+            formControlName="remark"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.createdDate"
+            for="field_createdDate"
+            >Created Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_createdDate"
+              data-cy="createdDate"
+              type="text"
+              class="form-control"
+              name="createdDate"
+              ngbDatepicker
+              #createdDateDp="ngbDatepicker"
+              formControlName="createdDate"
+            />
+            <span class="input-group-append">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="createdDateDp.toggle()"
+              >
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.createdBy"
+            for="field_createdBy"
+            >Created By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="createdBy"
+            id="field_createdBy"
+            data-cy="createdBy"
+            formControlName="createdBy"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.lastModified"
+            for="field_lastModified"
+            >Last Modified</label
+          >
+          <div class="input-group">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="text"
+              class="form-control"
+              name="lastModified"
+              ngbDatepicker
+              #lastModifiedDp="ngbDatepicker"
+              formControlName="lastModified"
+            />
+            <span class="input-group-append">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="lastModifiedDp.toggle()"
+              >
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.lastModifiedBy"
+            for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.freeField1"
+            for="field_freeField1"
+            >Free Field 1</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.freeField2"
+            for="field_freeField2"
+            >Free Field 2</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.freeField3"
+            for="field_freeField3"
+            >Free Field 3</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField3"
+            id="field_freeField3"
+            data-cy="freeField3"
+            formControlName="freeField3"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.freeField4"
+            for="field_freeField4"
+            >Free Field 4</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField4"
+            id="field_freeField4"
+            data-cy="freeField4"
+            formControlName="freeField4"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.audit"
+            for="field_audit"
+            >Audit</label
+          >
+          <select
+            class="form-control"
+            id="field_audit"
+            data-cy="audit"
+            name="audit"
+            formControlName="audit"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                auditOption.id === editForm.get('audit')!.value?.id
+                  ? editForm.get('audit')!.value
+                  : auditOption
+              "
+              *ngFor="
+                let auditOption of auditsSharedCollection;
+                trackBy: trackAuditById
+              "
+            >
+              {{ auditOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button
+          type="button"
+          id="cancel-save"
+          data-cy="entityCreateCancelButton"
+          class="btn btn-secondary"
+          (click)="previousState()"
+        >
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span
+            jhiTranslate="entity.action.cancel"
+            >Cancel</span
+          >
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span
+            jhiTranslate="entity.action.save"
+            >Save</span
+          >
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

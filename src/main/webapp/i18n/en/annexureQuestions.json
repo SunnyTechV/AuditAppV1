@@ -1,0 +1,36 @@
+{
+  "auditAppV1App": {
+    "annexureQuestions": {
+      "home": {
+        "title": "Annexure Questions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Annexure Questions",
+        "createOrEditLabel": "Create or edit a Annexure Questions",
+        "notFound": "No Annexure Questions found"
+      },
+      "created": "A new Annexure Questions is created with identifier {{ param }}",
+      "updated": "A Annexure Questions is updated with identifier {{ param }}",
+      "deleted": "A Annexure Questions is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Annexure Questions {{ id }}?"
+      },
+      "detail": {
+        "title": "Annexure Questions"
+      },
+      "id": "ID",
+      "formName": "Form Name",
+      "type": "Type",
+      "subType": "Sub Type",
+      "description": "Description",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "annexureAnswers": "Annexure Answers"
+    }
+  }
+}

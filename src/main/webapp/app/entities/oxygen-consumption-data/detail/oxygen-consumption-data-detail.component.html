@@ -1,0 +1,218 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="oxygenConsumptionData">
+      <h2 data-cy="oxygenConsumptionDataDetailsHeading">
+        <span jhiTranslate="auditAppV1App.oxygenConsumptionData.detail.title"
+          >Oxygen Consumption Data</span
+        >
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ oxygenConsumptionData.id }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.oxygenConsumptionData.formName"
+            >Form Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ oxygenConsumptionData.formName }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.oxygenConsumptionData.type"
+            >Type</span
+          >
+        </dt>
+        <dd>
+          <span>{{ oxygenConsumptionData.type }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.oxygenConsumptionData.subType"
+            >Sub Type</span
+          >
+        </dt>
+        <dd>
+          <span>{{ oxygenConsumptionData.subType }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.oxygenConsumptionData.tableName"
+            >Table Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ oxygenConsumptionData.tableName }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.oxygenConsumptionData.noofPatients"
+            >Noof Patients</span
+          >
+        </dt>
+        <dd>
+          <span>{{ oxygenConsumptionData.noofPatients }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.oxygenConsumptionData.consumptionLitperMin"
+            >Consumption Litper Min</span
+          >
+        </dt>
+        <dd>
+          <span>{{ oxygenConsumptionData.consumptionLitperMin }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.oxygenConsumptionData.consumptionLitperDay"
+            >Consumption Litper Day</span
+          >
+        </dt>
+        <dd>
+          <span>{{ oxygenConsumptionData.consumptionLitperDay }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.oxygenConsumptionData.consumptionKLitperDay"
+            >Consumption K Litper Day</span
+          >
+        </dt>
+        <dd>
+          <span>{{ oxygenConsumptionData.consumptionKLitperDay }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.oxygenConsumptionData.consumptionTotal"
+            >Consumption Total</span
+          >
+        </dt>
+        <dd>
+          <span>{{ oxygenConsumptionData.consumptionTotal }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.oxygenConsumptionData.freeField1"
+            >Free Field 1</span
+          >
+        </dt>
+        <dd>
+          <span>{{ oxygenConsumptionData.freeField1 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.oxygenConsumptionData.freeField2"
+            >Free Field 2</span
+          >
+        </dt>
+        <dd>
+          <span>{{ oxygenConsumptionData.freeField2 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.oxygenConsumptionData.freeField3"
+            >Free Field 3</span
+          >
+        </dt>
+        <dd>
+          <span>{{ oxygenConsumptionData.freeField3 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.oxygenConsumptionData.createdDate"
+            >Created Date</span
+          >
+        </dt>
+        <dd>
+          <span>{{
+            oxygenConsumptionData.createdDate | formatMediumDate
+          }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.oxygenConsumptionData.createdBy"
+            >Created By</span
+          >
+        </dt>
+        <dd>
+          <span>{{ oxygenConsumptionData.createdBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.oxygenConsumptionData.lastModified"
+            >Last Modified</span
+          >
+        </dt>
+        <dd>
+          <span>{{
+            oxygenConsumptionData.lastModified | formatMediumDate
+          }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.oxygenConsumptionData.lastModifiedBy"
+            >Last Modified By</span
+          >
+        </dt>
+        <dd>
+          <span>{{ oxygenConsumptionData.lastModifiedBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.oxygenConsumptionData.audit"
+            >Audit</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="oxygenConsumptionData.audit">
+            <a
+              [routerLink]="['/audit', oxygenConsumptionData.audit?.id, 'view']"
+              >{{ oxygenConsumptionData.audit?.id }}</a
+            >
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.oxygenConsumptionData.tableDetails"
+            >Table Details</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="oxygenConsumptionData.tableDetails">
+            <a
+              [routerLink]="[
+                '/table-details',
+                oxygenConsumptionData.tableDetails?.id,
+                'view'
+              ]"
+              >{{ oxygenConsumptionData.tableDetails?.id }}</a
+            >
+          </div>
+        </dd>
+      </dl>
+
+      <button
+        type="submit"
+        (click)="previousState()"
+        class="btn btn-info"
+        data-cy="entityDetailsBackButton"
+      >
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.back"
+          >Back</span
+        >
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="[
+          '/oxygen-consumption-data',
+          oxygenConsumptionData.id,
+          'edit'
+        ]"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.edit"
+          >Edit</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

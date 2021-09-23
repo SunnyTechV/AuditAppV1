@@ -1,0 +1,37 @@
+{
+  "auditAppV1App": {
+    "tableDetails": {
+      "home": {
+        "title": "Table Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Table Details",
+        "createOrEditLabel": "Create or edit a Table Details",
+        "notFound": "No Table Details found"
+      },
+      "created": "A new Table Details is created with identifier {{ param }}",
+      "updated": "A Table Details is updated with identifier {{ param }}",
+      "deleted": "A Table Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Table Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Table Details"
+      },
+      "id": "ID",
+      "formName": "Form Name",
+      "type": "Type",
+      "subType": "Sub Type",
+      "tableName": "Table Name",
+      "description": "Description",
+      "descriptionParameter": "Description Parameter",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "oxygenConsumptionData": "Oxygen Consumption Data"
+    }
+  }
+}

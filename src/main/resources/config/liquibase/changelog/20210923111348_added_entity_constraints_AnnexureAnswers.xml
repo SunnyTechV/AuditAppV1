@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+    <!--
+        Added the constraints for entity AnnexureAnswers.
+    -->
+    <changeSet id="20210923111348-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="audit_id"
+                                 baseTableName="annexure_answers"
+                                 constraintName="fk_annexure_answers__audit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="audit"/>
+
+        <addForeignKeyConstraint baseColumnNames="annexure_questions_id"
+                                 baseTableName="annexure_answers"
+                                 constraintName="fk_annexure_answers__annexure_questions_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="annexure_questions"/>
+    </changeSet>
+</databaseChangeLog>

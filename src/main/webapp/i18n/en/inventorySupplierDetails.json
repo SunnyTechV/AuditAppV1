@@ -1,0 +1,39 @@
+{
+  "auditAppV1App": {
+    "inventorySupplierDetails": {
+      "home": {
+        "title": "Inventory Supplier Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Inventory Supplier Details",
+        "createOrEditLabel": "Create or edit a Inventory Supplier Details",
+        "notFound": "No Inventory Supplier Details found"
+      },
+      "created": "A new Inventory Supplier Details is created with identifier {{ param }}",
+      "updated": "A Inventory Supplier Details is updated with identifier {{ param }}",
+      "deleted": "A Inventory Supplier Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Inventory Supplier Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Inventory Supplier Details"
+      },
+      "id": "ID",
+      "formName": "Form Name",
+      "type": "Type",
+      "subType": "Sub Type",
+      "tableName": "Table Name",
+      "supplierName": "Supplier Name",
+      "supplierAddress": "Supplier Address",
+      "supplierContactName": "Supplier Contact Name",
+      "supplierContactNameNumber": "Supplier Contact Name Number",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "audit": "Audit"
+    }
+  }
+}

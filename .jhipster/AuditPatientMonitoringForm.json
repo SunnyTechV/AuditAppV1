@@ -1,0 +1,180 @@
+{
+  "name": "AuditPatientMonitoringForm",
+  "fields": [
+    {
+      "fieldName": "wardNo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "patientName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bedNo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dateOfAdmission",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "oxygenType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sixToEightAM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "oxySixToEightAM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "eightToTenAM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "oxyEightToTenAM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "tenToTwelveAM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "oxyTenToTwelveAM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "twelveToTowPM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "oxyTwelveToTowPM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "twoToFourPM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "oxyTwoToFourPM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "fourToSixPM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "oxyFourToSixPM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "sixToEightPM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "oxySixToEightPM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "eightToTenPM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "oxyEightToTenPM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "tenToTwelvePM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "oxyTenToTwelvePM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "twelveToTwoAM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "oxyTwelveToTwoAM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "twoToFourAM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "oxyTwoToFourAM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "fourToSixAM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "oxyFourToSixAM",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "drName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nurseName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "audit",
+      "otherEntityRelationshipName": "auditPatientMonitoringForm",
+      "relationshipName": "audit",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "audit_patient_monitoring_form",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210923111349"
+}

@@ -1,0 +1,149 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tableDetails">
+      <h2 data-cy="tableDetailsDetailsHeading">
+        <span jhiTranslate="auditAppV1App.tableDetails.detail.title"
+          >Table Details</span
+        >
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ tableDetails.id }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.tableDetails.formName"
+            >Form Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ tableDetails.formName }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.tableDetails.type">Type</span>
+        </dt>
+        <dd>
+          <span>{{ tableDetails.type }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.tableDetails.subType"
+            >Sub Type</span
+          >
+        </dt>
+        <dd>
+          <span>{{ tableDetails.subType }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.tableDetails.tableName"
+            >Table Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ tableDetails.tableName }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.tableDetails.description"
+            >Description</span
+          >
+        </dt>
+        <dd>
+          <span>{{ tableDetails.description }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.tableDetails.descriptionParameter"
+            >Description Parameter</span
+          >
+        </dt>
+        <dd>
+          <span>{{ tableDetails.descriptionParameter }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.tableDetails.freeField1"
+            >Free Field 1</span
+          >
+        </dt>
+        <dd>
+          <span>{{ tableDetails.freeField1 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.tableDetails.freeField2"
+            >Free Field 2</span
+          >
+        </dt>
+        <dd>
+          <span>{{ tableDetails.freeField2 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.tableDetails.freeField3"
+            >Free Field 3</span
+          >
+        </dt>
+        <dd>
+          <span>{{ tableDetails.freeField3 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.tableDetails.createdDate"
+            >Created Date</span
+          >
+        </dt>
+        <dd>
+          <span>{{ tableDetails.createdDate | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.tableDetails.createdBy"
+            >Created By</span
+          >
+        </dt>
+        <dd>
+          <span>{{ tableDetails.createdBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.tableDetails.lastModified"
+            >Last Modified</span
+          >
+        </dt>
+        <dd>
+          <span>{{ tableDetails.lastModified | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.tableDetails.lastModifiedBy"
+            >Last Modified By</span
+          >
+        </dt>
+        <dd>
+          <span>{{ tableDetails.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button
+        type="submit"
+        (click)="previousState()"
+        class="btn btn-info"
+        data-cy="entityDetailsBackButton"
+      >
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.back"
+          >Back</span
+        >
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/table-details', tableDetails.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.edit"
+          >Edit</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

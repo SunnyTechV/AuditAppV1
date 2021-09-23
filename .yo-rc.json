@@ -1,1 +1,47 @@
-{"generator-jhipster":{"applicationType":"monolith","gitCompany":"","baseName":"AuditAppV1","packageName":"com.vgtech.auditapp","packageFolder":"com/vgtech/auditapp","serverPort":8080,"serviceDiscoveryType":false,"authenticationType":"jwt","cacheProvider":"ehcache","enableHibernateCache":true,"websocket":false,"databaseType":"sql","devDatabaseType":"mysql","prodDatabaseType":"mysql","searchEngine":false,"enableSwaggerCodegen":"true","messageBroker":false,"buildTool":"maven","useSass":true,"clientPackageManager":"npm","testFrameworks":[],"enableTranslation":true,"nativeLanguage":"en","languages":["en"],"clientFramework":"angularX","jhiPrefix":"jhi","withAdminUi":true},"git-provider":"GitHub","git-company":"SunnyTechV","repository-name":"AuditAppV1"}
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "AuditAppV1",
+    "packageName": "com.vgtech.auditapp",
+    "packageFolder": "com/vgtech/auditapp",
+    "serverPort": 8080,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "enableSwaggerCodegen": "true",
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": ["en"],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "withAdminUi": true,
+    "entities": [
+      "Audit",
+      "AuditFormSHospGenInfo",
+      "AnnexureQuestions",
+      "AnnexureAnswers",
+      "AuditPatientMonitoringForm",
+      "InventoryReport",
+      "InventorySupplierDetails",
+      "TableDetails",
+      "OxygenConsumptionData",
+      "FireElectricalAudit"
+    ],
+    "lastLiquibaseTimestamp": 1632395634000
+  },
+  "git-provider": "GitHub",
+  "git-company": "SunnyTechV",
+  "repository-name": "AuditAppV1"
+}

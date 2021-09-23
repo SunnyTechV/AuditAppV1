@@ -1,0 +1,176 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="inventoryReport">
+      <h2 data-cy="inventoryReportDetailsHeading">
+        <span jhiTranslate="auditAppV1App.inventoryReport.detail.title"
+          >Inventory Report</span
+        >
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ inventoryReport.id }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventoryReport.formName"
+            >Form Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventoryReport.formName }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventoryReport.type">Type</span>
+        </dt>
+        <dd>
+          <span>{{ inventoryReport.type }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventoryReport.subType"
+            >Sub Type</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventoryReport.subType }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventoryReport.tableName"
+            >Table Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventoryReport.tableName }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventoryReport.description"
+            >Description</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventoryReport.description }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.inventoryReport.descriptionParameter"
+            >Description Parameter</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventoryReport.descriptionParameter }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventoryReport.actualAvailable"
+            >Actual Available</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventoryReport.actualAvailable }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventoryReport.remark"
+            >Remark</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventoryReport.remark }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventoryReport.freeField1"
+            >Free Field 1</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventoryReport.freeField1 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventoryReport.freeField2"
+            >Free Field 2</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventoryReport.freeField2 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventoryReport.freeField3"
+            >Free Field 3</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventoryReport.freeField3 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventoryReport.createdDate"
+            >Created Date</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventoryReport.createdDate | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventoryReport.createdBy"
+            >Created By</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventoryReport.createdBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventoryReport.lastModified"
+            >Last Modified</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventoryReport.lastModified | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventoryReport.lastModifiedBy"
+            >Last Modified By</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventoryReport.lastModifiedBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventoryReport.audit">Audit</span>
+        </dt>
+        <dd>
+          <div *ngIf="inventoryReport.audit">
+            <a [routerLink]="['/audit', inventoryReport.audit?.id, 'view']">{{
+              inventoryReport.audit?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button
+        type="submit"
+        (click)="previousState()"
+        class="btn btn-info"
+        data-cy="entityDetailsBackButton"
+      >
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.back"
+          >Back</span
+        >
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/inventory-report', inventoryReport.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.edit"
+          >Edit</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

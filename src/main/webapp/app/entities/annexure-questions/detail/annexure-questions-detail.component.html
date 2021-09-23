@@ -1,0 +1,141 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="annexureQuestions">
+      <h2 data-cy="annexureQuestionsDetailsHeading">
+        <span jhiTranslate="auditAppV1App.annexureQuestions.detail.title"
+          >Annexure Questions</span
+        >
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ annexureQuestions.id }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureQuestions.formName"
+            >Form Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureQuestions.formName }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureQuestions.type">Type</span>
+        </dt>
+        <dd>
+          <span>{{ annexureQuestions.type }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureQuestions.subType"
+            >Sub Type</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureQuestions.subType }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureQuestions.description"
+            >Description</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureQuestions.description }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureQuestions.freeField1"
+            >Free Field 1</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureQuestions.freeField1 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureQuestions.freeField2"
+            >Free Field 2</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureQuestions.freeField2 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureQuestions.freeField3"
+            >Free Field 3</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureQuestions.freeField3 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureQuestions.freeField4"
+            >Free Field 4</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureQuestions.freeField4 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureQuestions.createdDate"
+            >Created Date</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureQuestions.createdDate | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureQuestions.createdBy"
+            >Created By</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureQuestions.createdBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureQuestions.lastModified"
+            >Last Modified</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureQuestions.lastModified | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureQuestions.lastModifiedBy"
+            >Last Modified By</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureQuestions.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button
+        type="submit"
+        (click)="previousState()"
+        class="btn btn-info"
+        data-cy="entityDetailsBackButton"
+      >
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.back"
+          >Back</span
+        >
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/annexure-questions', annexureQuestions.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.edit"
+          >Edit</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

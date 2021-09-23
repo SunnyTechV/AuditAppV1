@@ -1,0 +1,58 @@
+{
+  "auditAppV1App": {
+    "auditFormSHospGenInfo": {
+      "home": {
+        "title": "Audit Form S Hosp Gen Infos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Audit Form S Hosp Gen Info",
+        "createOrEditLabel": "Create or edit a Audit Form S Hosp Gen Info",
+        "notFound": "No Audit Form S Hosp Gen Infos found"
+      },
+      "created": "A new Audit Form S Hosp Gen Info is created with identifier {{ param }}",
+      "updated": "A Audit Form S Hosp Gen Info is updated with identifier {{ param }}",
+      "deleted": "A Audit Form S Hosp Gen Info is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Audit Form S Hosp Gen Info {{ id }}?"
+      },
+      "detail": {
+        "title": "Audit Form S Hosp Gen Info"
+      },
+      "id": "ID",
+      "hospName": "Hosp Name",
+      "hospType": "Hosp Type",
+      "type": "Type",
+      "subType": "Sub Type",
+      "formName": "Form Name",
+      "inchargeName": "Incharge Name",
+      "hospAddress": "Hosp Address",
+      "hospPhoneNo": "Hosp Phone No",
+      "normalBeds": "Normal Beds",
+      "oxygenBeds": "Oxygen Beds",
+      "ventilatorBeds": "Ventilator Beds",
+      "icuBeds": "Icu Beds",
+      "onCylinderPatient": "On Cylinder Patient",
+      "onPipedBedsPatient": "On Piped Beds Patient",
+      "onNIV": "On NIV",
+      "onIntubated": "On Intubated",
+      "jumboSystemInstalledType": "Jumbo System Installed Type",
+      "availableCylinderTypeD7": "Available Cylinder Type D 7",
+      "availableCylinderTypeB": "Available Cylinder Type B",
+      "cylinderAgencyName": "Cylinder Agency Name",
+      "cylinderAgencyAddress": "Cylinder Agency Address",
+      "availableLMOCapacityKL": "Available LMO Capacity KL",
+      "lmoSupplierName": "Lmo Supplier Name",
+      "lmoSupplierFrequency": "Lmo Supplier Frequency",
+      "lastLmoSuppliedQuantity": "Last Lmo Supplied Quantity",
+      "remark": "Remark",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "audit": "Audit"
+    }
+  }
+}

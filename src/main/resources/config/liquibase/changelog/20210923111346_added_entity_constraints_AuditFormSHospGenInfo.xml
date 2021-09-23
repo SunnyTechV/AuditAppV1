@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+    <!--
+        Added the constraints for entity AuditFormSHospGenInfo.
+    -->
+    <changeSet id="20210923111346-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="audit_id"
+                                 baseTableName="audit_form_s_hosp_gen_info"
+                                 constraintName="fk_audit_form_s_hosp_gen_info__audit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="audit"/>
+    </changeSet>
+</databaseChangeLog>

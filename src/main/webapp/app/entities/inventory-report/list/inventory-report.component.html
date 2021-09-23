@@ -1,0 +1,268 @@
+<div>
+  <h2 id="page-heading" data-cy="InventoryReportHeading">
+    <span jhiTranslate="auditAppV1App.inventoryReport.home.title"
+      >Inventory Reports</span
+    >
+
+    <div class="d-flex justify-content-end">
+      <button
+        class="btn btn-info mr-2"
+        (click)="loadPage()"
+        [disabled]="isLoading"
+      >
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="auditAppV1App.inventoryReport.home.refreshListLabel"
+          >Refresh List</span
+        >
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-inventory-report"
+        [routerLink]="['/inventory-report/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="auditAppV1App.inventoryReport.home.createLabel">
+          Create a new Inventory Report
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div
+    class="alert alert-warning"
+    id="no-result"
+    *ngIf="inventoryReports?.length === 0"
+  >
+    <span jhiTranslate="auditAppV1App.inventoryReport.home.notFound"
+      >No inventoryReports found</span
+    >
+  </div>
+
+  <div
+    class="table-responsive"
+    id="entities"
+    *ngIf="inventoryReports && inventoryReports.length > 0"
+  >
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr
+          jhiSort
+          [(predicate)]="predicate"
+          [(ascending)]="ascending"
+          (sortChange)="loadPage()"
+        >
+          <th scope="col" jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="formName">
+            <span jhiTranslate="auditAppV1App.inventoryReport.formName"
+              >Form Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="type">
+            <span jhiTranslate="auditAppV1App.inventoryReport.type">Type</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="subType">
+            <span jhiTranslate="auditAppV1App.inventoryReport.subType"
+              >Sub Type</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tableName">
+            <span jhiTranslate="auditAppV1App.inventoryReport.tableName"
+              >Table Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <span jhiTranslate="auditAppV1App.inventoryReport.description"
+              >Description</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="descriptionParameter">
+            <span
+              jhiTranslate="auditAppV1App.inventoryReport.descriptionParameter"
+              >Description Parameter</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="actualAvailable">
+            <span jhiTranslate="auditAppV1App.inventoryReport.actualAvailable"
+              >Actual Available</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="remark">
+            <span jhiTranslate="auditAppV1App.inventoryReport.remark"
+              >Remark</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <span jhiTranslate="auditAppV1App.inventoryReport.freeField1"
+              >Free Field 1</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <span jhiTranslate="auditAppV1App.inventoryReport.freeField2"
+              >Free Field 2</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <span jhiTranslate="auditAppV1App.inventoryReport.freeField3"
+              >Free Field 3</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createdDate">
+            <span jhiTranslate="auditAppV1App.inventoryReport.createdDate"
+              >Created Date</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createdBy">
+            <span jhiTranslate="auditAppV1App.inventoryReport.createdBy"
+              >Created By</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <span jhiTranslate="auditAppV1App.inventoryReport.lastModified"
+              >Last Modified</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <span jhiTranslate="auditAppV1App.inventoryReport.lastModifiedBy"
+              >Last Modified By</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="audit.id">
+            <span jhiTranslate="auditAppV1App.inventoryReport.audit"
+              >Audit</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let inventoryReport of inventoryReports; trackBy: trackId"
+          data-cy="entityTable"
+        >
+          <td>
+            <a
+              [routerLink]="['/inventory-report', inventoryReport.id, 'view']"
+              >{{ inventoryReport.id }}</a
+            >
+          </td>
+          <td>{{ inventoryReport.formName }}</td>
+          <td>{{ inventoryReport.type }}</td>
+          <td>{{ inventoryReport.subType }}</td>
+          <td>{{ inventoryReport.tableName }}</td>
+          <td>{{ inventoryReport.description }}</td>
+          <td>{{ inventoryReport.descriptionParameter }}</td>
+          <td>{{ inventoryReport.actualAvailable }}</td>
+          <td>{{ inventoryReport.remark }}</td>
+          <td>{{ inventoryReport.freeField1 }}</td>
+          <td>{{ inventoryReport.freeField2 }}</td>
+          <td>{{ inventoryReport.freeField3 }}</td>
+          <td>{{ inventoryReport.createdDate | formatMediumDate }}</td>
+          <td>{{ inventoryReport.createdBy }}</td>
+          <td>{{ inventoryReport.lastModified | formatMediumDate }}</td>
+          <td>{{ inventoryReport.lastModifiedBy }}</td>
+          <td>
+            <div *ngIf="inventoryReport.audit">
+              <a [routerLink]="['/audit', inventoryReport.audit?.id, 'view']">{{
+                inventoryReport.audit?.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/inventory-report', inventoryReport.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.view"
+                  >View</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/inventory-report', inventoryReport.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.edit"
+                  >Edit</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                (click)="delete(inventoryReport)"
+                class="btn btn-danger btn-sm"
+                data-cy="entityDeleteButton"
+              >
+                <fa-icon icon="times"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.delete"
+                  >Delete</span
+                >
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="inventoryReports && inventoryReports.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count
+        [params]="{
+          page: page,
+          totalItems: totalItems,
+          itemsPerPage: itemsPerPage
+        }"
+      ></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

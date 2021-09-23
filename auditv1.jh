@@ -1,0 +1,303 @@
+
+//Main Audit table
+entity Audit{
+    auditDate LocalDate
+    hospName String  
+    isAuditComplete Boolean
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    remark String
+    createdBy String
+    createdDate LocalDate
+    lastModified LocalDate
+    lastModifiedBy String
+}
+
+//Table for Audit formS General information of hospital
+entity AuditFormSHospGenInfo{
+	hospName String
+    hospType String
+	type String
+	subType String
+    formName String
+    inchargeName String
+    hospAddress String
+    hospPhoneNo String
+    normalBeds Integer
+    oxygenBeds Integer
+    ventilatorBeds Integer
+    icuBeds Integer
+    onCylinderPatient Integer
+    onPipedBedsPatient Integer
+    onNIV Integer
+    onIntubated Integer
+    jumboSystemInstalledType String
+    availableCylinderTypeD7 Integer
+    availableCylinderTypeB Integer
+    cylinderAgencyName String
+    cylinderAgencyAddress String
+    availableLMOCapacityKL Double
+    lmoSupplierName String
+    lmoSupplierFrequency Integer
+    lastLmoSuppliedQuantity Double
+    remark String
+    createdDate LocalDate
+    createdBy String
+    lastModified LocalDate
+    lastModifiedBy String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+}
+
+//Table to store questions of annexture 
+//cab be use system wide
+entity AnnexureQuestions{
+	formName String
+	type String
+    subType String
+	description String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    createdDate LocalDate
+    createdBy String
+    lastModified LocalDate
+    lastModifiedBy String
+}
+
+//USed for storing annexutre answer of table 
+//have Yes/No(compliance) and comment as field
+entity AnnexureAnswers{
+	formName String
+	type String
+	subType String
+	compliance Boolean
+	comment String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+	remark String
+    createdDate LocalDate
+    createdBy String
+    lastModified LocalDate
+    lastModifiedBy String
+}
+ 
+ //This table is for Monitor Form for Hospital
+entity AuditPatientMonitoringForm{ 
+        wardNo Integer
+        patientName String
+        bedNo Integer
+        dateOfAdmission LocalDate
+        oxygenType String
+        sixToEightAM Double
+        oxySixToEightAM Double
+        eightToTenAM Double
+        oxyEightToTenAM Double
+        tenToTwelveAM Double
+        oxyTenToTwelveAM Double
+        twelveToTowPM Double
+        oxyTwelveToTowPM Double
+        twoToFourPM Double
+        oxyTwoToFourPM Double
+        fourToSixPM Double
+        oxyFourToSixPM Double
+        sixToEightPM Double
+        oxySixToEightPM Double
+        eightToTenPM Double
+        oxyEightToTenPM Double
+        tenToTwelvePM Double
+        oxyTenToTwelvePM Double
+        twelveToTwoAM Double
+        oxyTwelveToTwoAM Double
+        twoToFourAM Double
+        oxyTwoToFourAM Double
+        fourToSixAM Double
+        oxyFourToSixAM Double
+        drName String
+        nurseName String
+        createdBy String
+        createdDate LocalDate
+        lastModifiedBy String
+        lastModified LocalDate
+        freeField1 String
+        freeField2 String
+        freeField3 String
+        freeField4 String
+}
+
+//FormS Section J inventory report
+entity InventoryReport{
+    formName String
+    type String
+    subType String
+    tableName String
+    description String
+    descriptionParameter String
+    actualAvailable String
+    remark String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    createdDate LocalDate
+    createdBy String
+    lastModified LocalDate
+    lastModifiedBy String
+}
+
+//formS section J
+entity InventorySupplierDetails{
+    formName String
+    type String
+    subType String
+    tableName String
+    supplierName String
+    supplierAddress String
+    supplierContactName String
+    supplierContactNameNumber String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    createdDate LocalDate
+    createdBy String
+    lastModified LocalDate
+    lastModifiedBy String
+}
+
+//Lookup table for questions/table
+//rows of 2 dimensional questions like
+//FormS Details of Xygen  table
+//Like FormS page 1 Details of
+//oxygen use table
+entity TableDetails{
+    formName String
+    type String
+    subType String
+    tableName String
+    description String
+    descriptionParameter String
+    freeField1 String
+     freeField2 String
+     freeField3 String
+     createdDate LocalDate
+    createdBy String
+    lastModified LocalDate
+    lastModifiedBy String
+}
+
+//For storing of input data from 
+//auditor of above form
+entity OxygenConsumptionData{
+    formName String
+    type String
+    subType String
+    tableName String
+    noofPatients Integer 
+    consumptionLitperMin Double
+    consumptionLitperDay Double
+    consumptionKLitperDay Double
+    consumptionTotal Double
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    createdDate LocalDate
+    createdBy String
+    lastModified LocalDate
+    lastModifiedBy String
+}
+
+entity FireElectricalAudit{
+  fireAuditDoneOrnot Boolean /** Fire Audit of Hospital has been done? */
+  fireAuditDate LocalDate /**If yes Pls.mention Date of fire Audit */
+  fireFaults String /**Faults found (if any) */
+  fireCorrectiveAction String /**Corrective action taken */
+  fireAuditPlan String /** If No audit done, please mention What is the Plan for Audit? */
+  electricalAuditDone Boolean /** Electrical Inspection of Hospital has been done? */
+  electricalAuditDate LocalDate /**If yes Pls.mention Date of fire Audit */
+  electricalFaults String /**Faults found (if any) */
+  electricalCorrectiveAction String /**Corrective action taken */
+  electricalAuditInspection String /** If No electrical inspection done, please mention What is the Plan for inspection */
+  technicalPersonAppoint Boolean/** Appointment of dedicated technical person to check / Monitor Oxygen Pipeline, Cylinders & Tank 
+(24 X 7) */ 
+  techPersonname String
+  techPersonMobNo String
+  technicalEngineerName String/** Name of technical Engineer */
+  technicalEngineerAddress String
+  technicalEngineerMob String
+  technicalEngineerAlternateMob String
+  o2HospRequirement Double /** Daily Oxygen Requirement by Hospital (In MT) Before Audit */
+  o2HospProjectedRequirement Double /** Projected requirement of Oxygen by Hospital (In MT) As per Audit */
+  saveO2RequirementPossibleMT Double /** Saving of Oxygen Requirement (In MT) which is possible */
+  monitoringO2ValvesPort Boolean /** Whether ward boy / sister is appointed (24 X 7) for monitoring of Oxygen Valves / Ports and patient wise supply? */
+  portValvesShutDown Boolean /** Whether Port / Valves is shut down, when patient goes to washroom / Eating */
+  idPatientDrillDone Boolean /** Is there patient drill taken for Oxygen Usage? */
+  staffCheckingLeakage Boolean /** Are staff Checking Carefully leakages of Oxygen Pipeline Cylinder & Cryogenic tank daily? */
+  patientO2ReqFinalized Boolean /** Is patient Oxygen requirement finalized carefully by using prone position after giving sufficient */
+  TimeByDoctor String
+  isLightingInstalled Boolean /** Are Lightening Arresters available and installed on building? */
+  locLightningArrerstor String /** If available, where is it?At Hospital / At Oxygen Cryogenic Tank area */
+   createdBy String
+        createdDate LocalDate
+        lastModifiedBy String
+        lastModified LocalDate
+        freeField1 String
+        freeField2 String
+        freeField3 String
+        freeField4 String
+}
+/** time by the Doctor? (Left Lateral, Right Lateral, Lying on belly, Sitting up) */
+enum TimeByDoctor {
+  LeftLateral ("Left lateral"),
+  RightLateral ("Right lateral"),
+  LyingOnBelly ("Lying on belly"),
+  SittingUp ("Sitting up")
+}
+
+enum HospitalType {
+    DCH(DCH),
+    DCHC(DCHC),
+    PRIVATEO2("Private O2 Only")
+}
+
+enum OxygenType {
+    O2(O2),
+    NRBM(NRBM),
+    NIV(NIV),
+    Intub(Intub)
+}
+
+relationship OneToMany {
+	 Audit{auditFormSHospGenInfo} to AuditFormSHospGenInfo{audit} 
+     Audit{fireElectricalAudit} to FireElectricalAudit{audit}
+	 Audit{annexureAnswers} to AnnexureAnswers{audit}
+     Audit{invetoryReport} to InventoryReport{audit}
+     Audit{inventorySupplierDetails} to InventorySupplierDetails{audit}
+     Audit{oxygenConsumptionData} to OxygenConsumptionData{audit}
+     AnnexureQuestions{annexureAnswers} to  AnnexureAnswers{annexureQuestions} 
+     TableDetails{oxygenConsumptionData} to  OxygenConsumptionData{TableDetails} 
+}
+
+relationship OneToOne {
+    Audit{auditPatientMonitoringForm} to AuditPatientMonitoringForm{audit}
+}
+
+
+// Set pagination options
+paginate * with infinite-scroll
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service * with serviceClass
+
+filter *
+// Set an angular suffix
+// angularSuffix * with mySuffix

@@ -1,0 +1,41 @@
+{
+  "auditAppV1App": {
+    "oxygenConsumptionData": {
+      "home": {
+        "title": "Oxygen Consumption Data",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Oxygen Consumption Data",
+        "createOrEditLabel": "Create or edit a Oxygen Consumption Data",
+        "notFound": "No Oxygen Consumption Data found"
+      },
+      "created": "A new Oxygen Consumption Data is created with identifier {{ param }}",
+      "updated": "A Oxygen Consumption Data is updated with identifier {{ param }}",
+      "deleted": "A Oxygen Consumption Data is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Oxygen Consumption Data {{ id }}?"
+      },
+      "detail": {
+        "title": "Oxygen Consumption Data"
+      },
+      "id": "ID",
+      "formName": "Form Name",
+      "type": "Type",
+      "subType": "Sub Type",
+      "tableName": "Table Name",
+      "noofPatients": "Noof Patients",
+      "consumptionLitperMin": "Consumption Litper Min",
+      "consumptionLitperDay": "Consumption Litper Day",
+      "consumptionKLitperDay": "Consumption K Litper Day",
+      "consumptionTotal": "Consumption Total",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "audit": "Audit",
+      "tableDetails": "Table Details"
+    }
+  }
+}

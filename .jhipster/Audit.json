@@ -1,0 +1,108 @@
+{
+  "name": "Audit",
+  "fields": [
+    {
+      "fieldName": "auditDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "hospName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isAuditComplete",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "remark",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "auditPatientMonitoringForm",
+      "otherEntityRelationshipName": "audit",
+      "relationshipName": "auditPatientMonitoringForm",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "auditFormSHospGenInfo",
+      "otherEntityRelationshipName": "audit",
+      "relationshipName": "auditFormSHospGenInfo"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "fireElectricalAudit",
+      "otherEntityRelationshipName": "audit",
+      "relationshipName": "fireElectricalAudit"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "annexureAnswers",
+      "otherEntityRelationshipName": "audit",
+      "relationshipName": "annexureAnswers"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "inventoryReport",
+      "otherEntityRelationshipName": "audit",
+      "relationshipName": "invetoryReport"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "inventorySupplierDetails",
+      "otherEntityRelationshipName": "audit",
+      "relationshipName": "inventorySupplierDetails"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "oxygenConsumptionData",
+      "otherEntityRelationshipName": "audit",
+      "relationshipName": "oxygenConsumptionData"
+    }
+  ],
+  "entityTableName": "audit",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210923111345"
+}

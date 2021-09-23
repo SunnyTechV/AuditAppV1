@@ -1,0 +1,771 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form
+      name="editForm"
+      role="form"
+      novalidate
+      (ngSubmit)="save()"
+      [formGroup]="editForm"
+    >
+      <h2
+        id="jhi-audit-patient-monitoring-form-heading"
+        data-cy="AuditPatientMonitoringFormCreateUpdateHeading"
+        jhiTranslate="auditAppV1App.auditPatientMonitoringForm.home.createOrEditLabel"
+      >
+        Create or edit a Audit Patient Monitoring Form
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label
+            class="form-control-label"
+            jhiTranslate="global.field.id"
+            for="field_id"
+            >ID</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="id"
+            id="field_id"
+            data-cy="id"
+            formControlName="id"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.wardNo"
+            for="field_wardNo"
+            >Ward No</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="wardNo"
+            id="field_wardNo"
+            data-cy="wardNo"
+            formControlName="wardNo"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.patientName"
+            for="field_patientName"
+            >Patient Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="patientName"
+            id="field_patientName"
+            data-cy="patientName"
+            formControlName="patientName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.bedNo"
+            for="field_bedNo"
+            >Bed No</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bedNo"
+            id="field_bedNo"
+            data-cy="bedNo"
+            formControlName="bedNo"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.dateOfAdmission"
+            for="field_dateOfAdmission"
+            >Date Of Admission</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateOfAdmission"
+              data-cy="dateOfAdmission"
+              type="text"
+              class="form-control"
+              name="dateOfAdmission"
+              ngbDatepicker
+              #dateOfAdmissionDp="ngbDatepicker"
+              formControlName="dateOfAdmission"
+            />
+            <span class="input-group-append">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="dateOfAdmissionDp.toggle()"
+              >
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxygenType"
+            for="field_oxygenType"
+            >Oxygen Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="oxygenType"
+            id="field_oxygenType"
+            data-cy="oxygenType"
+            formControlName="oxygenType"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.sixToEightAM"
+            for="field_sixToEightAM"
+            >Six To Eight AM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="sixToEightAM"
+            id="field_sixToEightAM"
+            data-cy="sixToEightAM"
+            formControlName="sixToEightAM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxySixToEightAM"
+            for="field_oxySixToEightAM"
+            >Oxy Six To Eight AM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="oxySixToEightAM"
+            id="field_oxySixToEightAM"
+            data-cy="oxySixToEightAM"
+            formControlName="oxySixToEightAM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.eightToTenAM"
+            for="field_eightToTenAM"
+            >Eight To Ten AM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="eightToTenAM"
+            id="field_eightToTenAM"
+            data-cy="eightToTenAM"
+            formControlName="eightToTenAM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyEightToTenAM"
+            for="field_oxyEightToTenAM"
+            >Oxy Eight To Ten AM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="oxyEightToTenAM"
+            id="field_oxyEightToTenAM"
+            data-cy="oxyEightToTenAM"
+            formControlName="oxyEightToTenAM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.tenToTwelveAM"
+            for="field_tenToTwelveAM"
+            >Ten To Twelve AM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="tenToTwelveAM"
+            id="field_tenToTwelveAM"
+            data-cy="tenToTwelveAM"
+            formControlName="tenToTwelveAM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyTenToTwelveAM"
+            for="field_oxyTenToTwelveAM"
+            >Oxy Ten To Twelve AM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="oxyTenToTwelveAM"
+            id="field_oxyTenToTwelveAM"
+            data-cy="oxyTenToTwelveAM"
+            formControlName="oxyTenToTwelveAM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.twelveToTowPM"
+            for="field_twelveToTowPM"
+            >Twelve To Tow PM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="twelveToTowPM"
+            id="field_twelveToTowPM"
+            data-cy="twelveToTowPM"
+            formControlName="twelveToTowPM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyTwelveToTowPM"
+            for="field_oxyTwelveToTowPM"
+            >Oxy Twelve To Tow PM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="oxyTwelveToTowPM"
+            id="field_oxyTwelveToTowPM"
+            data-cy="oxyTwelveToTowPM"
+            formControlName="oxyTwelveToTowPM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.twoToFourPM"
+            for="field_twoToFourPM"
+            >Two To Four PM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="twoToFourPM"
+            id="field_twoToFourPM"
+            data-cy="twoToFourPM"
+            formControlName="twoToFourPM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyTwoToFourPM"
+            for="field_oxyTwoToFourPM"
+            >Oxy Two To Four PM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="oxyTwoToFourPM"
+            id="field_oxyTwoToFourPM"
+            data-cy="oxyTwoToFourPM"
+            formControlName="oxyTwoToFourPM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.fourToSixPM"
+            for="field_fourToSixPM"
+            >Four To Six PM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="fourToSixPM"
+            id="field_fourToSixPM"
+            data-cy="fourToSixPM"
+            formControlName="fourToSixPM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyFourToSixPM"
+            for="field_oxyFourToSixPM"
+            >Oxy Four To Six PM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="oxyFourToSixPM"
+            id="field_oxyFourToSixPM"
+            data-cy="oxyFourToSixPM"
+            formControlName="oxyFourToSixPM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.sixToEightPM"
+            for="field_sixToEightPM"
+            >Six To Eight PM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="sixToEightPM"
+            id="field_sixToEightPM"
+            data-cy="sixToEightPM"
+            formControlName="sixToEightPM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxySixToEightPM"
+            for="field_oxySixToEightPM"
+            >Oxy Six To Eight PM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="oxySixToEightPM"
+            id="field_oxySixToEightPM"
+            data-cy="oxySixToEightPM"
+            formControlName="oxySixToEightPM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.eightToTenPM"
+            for="field_eightToTenPM"
+            >Eight To Ten PM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="eightToTenPM"
+            id="field_eightToTenPM"
+            data-cy="eightToTenPM"
+            formControlName="eightToTenPM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyEightToTenPM"
+            for="field_oxyEightToTenPM"
+            >Oxy Eight To Ten PM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="oxyEightToTenPM"
+            id="field_oxyEightToTenPM"
+            data-cy="oxyEightToTenPM"
+            formControlName="oxyEightToTenPM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.tenToTwelvePM"
+            for="field_tenToTwelvePM"
+            >Ten To Twelve PM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="tenToTwelvePM"
+            id="field_tenToTwelvePM"
+            data-cy="tenToTwelvePM"
+            formControlName="tenToTwelvePM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyTenToTwelvePM"
+            for="field_oxyTenToTwelvePM"
+            >Oxy Ten To Twelve PM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="oxyTenToTwelvePM"
+            id="field_oxyTenToTwelvePM"
+            data-cy="oxyTenToTwelvePM"
+            formControlName="oxyTenToTwelvePM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.twelveToTwoAM"
+            for="field_twelveToTwoAM"
+            >Twelve To Two AM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="twelveToTwoAM"
+            id="field_twelveToTwoAM"
+            data-cy="twelveToTwoAM"
+            formControlName="twelveToTwoAM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyTwelveToTwoAM"
+            for="field_oxyTwelveToTwoAM"
+            >Oxy Twelve To Two AM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="oxyTwelveToTwoAM"
+            id="field_oxyTwelveToTwoAM"
+            data-cy="oxyTwelveToTwoAM"
+            formControlName="oxyTwelveToTwoAM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.twoToFourAM"
+            for="field_twoToFourAM"
+            >Two To Four AM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="twoToFourAM"
+            id="field_twoToFourAM"
+            data-cy="twoToFourAM"
+            formControlName="twoToFourAM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyTwoToFourAM"
+            for="field_oxyTwoToFourAM"
+            >Oxy Two To Four AM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="oxyTwoToFourAM"
+            id="field_oxyTwoToFourAM"
+            data-cy="oxyTwoToFourAM"
+            formControlName="oxyTwoToFourAM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.fourToSixAM"
+            for="field_fourToSixAM"
+            >Four To Six AM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="fourToSixAM"
+            id="field_fourToSixAM"
+            data-cy="fourToSixAM"
+            formControlName="fourToSixAM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyFourToSixAM"
+            for="field_oxyFourToSixAM"
+            >Oxy Four To Six AM</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="oxyFourToSixAM"
+            id="field_oxyFourToSixAM"
+            data-cy="oxyFourToSixAM"
+            formControlName="oxyFourToSixAM"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.drName"
+            for="field_drName"
+            >Dr Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="drName"
+            id="field_drName"
+            data-cy="drName"
+            formControlName="drName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.nurseName"
+            for="field_nurseName"
+            >Nurse Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nurseName"
+            id="field_nurseName"
+            data-cy="nurseName"
+            formControlName="nurseName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.createdBy"
+            for="field_createdBy"
+            >Created By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="createdBy"
+            id="field_createdBy"
+            data-cy="createdBy"
+            formControlName="createdBy"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.createdDate"
+            for="field_createdDate"
+            >Created Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_createdDate"
+              data-cy="createdDate"
+              type="text"
+              class="form-control"
+              name="createdDate"
+              ngbDatepicker
+              #createdDateDp="ngbDatepicker"
+              formControlName="createdDate"
+            />
+            <span class="input-group-append">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="createdDateDp.toggle()"
+              >
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.lastModifiedBy"
+            for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.lastModified"
+            for="field_lastModified"
+            >Last Modified</label
+          >
+          <div class="input-group">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="text"
+              class="form-control"
+              name="lastModified"
+              ngbDatepicker
+              #lastModifiedDp="ngbDatepicker"
+              formControlName="lastModified"
+            />
+            <span class="input-group-append">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="lastModifiedDp.toggle()"
+              >
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.freeField1"
+            for="field_freeField1"
+            >Free Field 1</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.freeField2"
+            for="field_freeField2"
+            >Free Field 2</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.freeField3"
+            for="field_freeField3"
+            >Free Field 3</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField3"
+            id="field_freeField3"
+            data-cy="freeField3"
+            formControlName="freeField3"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.auditPatientMonitoringForm.freeField4"
+            for="field_freeField4"
+            >Free Field 4</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField4"
+            id="field_freeField4"
+            data-cy="freeField4"
+            formControlName="freeField4"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button
+          type="button"
+          id="cancel-save"
+          data-cy="entityCreateCancelButton"
+          class="btn btn-secondary"
+          (click)="previousState()"
+        >
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span
+            jhiTranslate="entity.action.cancel"
+            >Cancel</span
+          >
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span
+            jhiTranslate="entity.action.save"
+            >Save</span
+          >
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,199 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="inventorySupplierDetails">
+      <h2 data-cy="inventorySupplierDetailsDetailsHeading">
+        <span jhiTranslate="auditAppV1App.inventorySupplierDetails.detail.title"
+          >Inventory Supplier Details</span
+        >
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ inventorySupplierDetails.id }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventorySupplierDetails.formName"
+            >Form Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventorySupplierDetails.formName }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventorySupplierDetails.type"
+            >Type</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventorySupplierDetails.type }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventorySupplierDetails.subType"
+            >Sub Type</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventorySupplierDetails.subType }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventorySupplierDetails.tableName"
+            >Table Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventorySupplierDetails.tableName }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.inventorySupplierDetails.supplierName"
+            >Supplier Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventorySupplierDetails.supplierName }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.inventorySupplierDetails.supplierAddress"
+            >Supplier Address</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventorySupplierDetails.supplierAddress }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.inventorySupplierDetails.supplierContactName"
+            >Supplier Contact Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventorySupplierDetails.supplierContactName }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.inventorySupplierDetails.supplierContactNameNumber"
+            >Supplier Contact Name Number</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventorySupplierDetails.supplierContactNameNumber }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventorySupplierDetails.freeField1"
+            >Free Field 1</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventorySupplierDetails.freeField1 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventorySupplierDetails.freeField2"
+            >Free Field 2</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventorySupplierDetails.freeField2 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventorySupplierDetails.freeField3"
+            >Free Field 3</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventorySupplierDetails.freeField3 }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.inventorySupplierDetails.createdDate"
+            >Created Date</span
+          >
+        </dt>
+        <dd>
+          <span>{{
+            inventorySupplierDetails.createdDate | formatMediumDate
+          }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventorySupplierDetails.createdBy"
+            >Created By</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventorySupplierDetails.createdBy }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.inventorySupplierDetails.lastModified"
+            >Last Modified</span
+          >
+        </dt>
+        <dd>
+          <span>{{
+            inventorySupplierDetails.lastModified | formatMediumDate
+          }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.inventorySupplierDetails.lastModifiedBy"
+            >Last Modified By</span
+          >
+        </dt>
+        <dd>
+          <span>{{ inventorySupplierDetails.lastModifiedBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.inventorySupplierDetails.audit"
+            >Audit</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="inventorySupplierDetails.audit">
+            <a
+              [routerLink]="[
+                '/audit',
+                inventorySupplierDetails.audit?.id,
+                'view'
+              ]"
+              >{{ inventorySupplierDetails.audit?.id }}</a
+            >
+          </div>
+        </dd>
+      </dl>
+
+      <button
+        type="submit"
+        (click)="previousState()"
+        class="btn btn-info"
+        data-cy="entityDetailsBackButton"
+      >
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.back"
+          >Back</span
+        >
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="[
+          '/inventory-supplier-details',
+          inventorySupplierDetails.id,
+          'edit'
+        ]"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.edit"
+          >Edit</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

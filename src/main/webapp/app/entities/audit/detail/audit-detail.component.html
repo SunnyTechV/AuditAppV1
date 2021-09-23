@@ -1,0 +1,148 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="audit">
+      <h2 data-cy="auditDetailsHeading">
+        <span jhiTranslate="auditAppV1App.audit.detail.title">Audit</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ audit.id }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.audit.auditDate">Audit Date</span>
+        </dt>
+        <dd>
+          <span>{{ audit.auditDate | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.audit.hospName">Hosp Name</span>
+        </dt>
+        <dd>
+          <span>{{ audit.hospName }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.audit.isAuditComplete"
+            >Is Audit Complete</span
+          >
+        </dt>
+        <dd>
+          <span>{{ audit.isAuditComplete }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.audit.freeField1"
+            >Free Field 1</span
+          >
+        </dt>
+        <dd>
+          <span>{{ audit.freeField1 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.audit.freeField2"
+            >Free Field 2</span
+          >
+        </dt>
+        <dd>
+          <span>{{ audit.freeField2 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.audit.freeField3"
+            >Free Field 3</span
+          >
+        </dt>
+        <dd>
+          <span>{{ audit.freeField3 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.audit.freeField4"
+            >Free Field 4</span
+          >
+        </dt>
+        <dd>
+          <span>{{ audit.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditAppV1App.audit.remark">Remark</span></dt>
+        <dd>
+          <span>{{ audit.remark }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.audit.createdBy">Created By</span>
+        </dt>
+        <dd>
+          <span>{{ audit.createdBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.audit.createdDate"
+            >Created Date</span
+          >
+        </dt>
+        <dd>
+          <span>{{ audit.createdDate | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.audit.lastModified"
+            >Last Modified</span
+          >
+        </dt>
+        <dd>
+          <span>{{ audit.lastModified | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.audit.lastModifiedBy"
+            >Last Modified By</span
+          >
+        </dt>
+        <dd>
+          <span>{{ audit.lastModifiedBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.audit.auditPatientMonitoringForm"
+            >Audit Patient Monitoring Form</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="audit.auditPatientMonitoringForm">
+            <a
+              [routerLink]="[
+                '/audit-patient-monitoring-form',
+                audit.auditPatientMonitoringForm?.id,
+                'view'
+              ]"
+              >{{ audit.auditPatientMonitoringForm?.id }}</a
+            >
+          </div>
+        </dd>
+      </dl>
+
+      <button
+        type="submit"
+        (click)="previousState()"
+        class="btn btn-info"
+        data-cy="entityDetailsBackButton"
+      >
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.back"
+          >Back</span
+        >
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/audit', audit.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.edit"
+          >Edit</span
+        >
+      </button>
+    </div>
+  </div>
+</div>
