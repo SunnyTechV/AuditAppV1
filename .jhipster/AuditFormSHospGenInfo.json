@@ -1,0 +1,159 @@
+{
+  "name": "AuditFormSHospGenInfo",
+  "fields": [
+    {
+      "fieldName": "hospName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hospType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "formName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "inchargeName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hospAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hospPhoneNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "normalBeds",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "oxygenBeds",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "ventilatorBeds",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "icuBeds",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "onCylinderPatient",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "onPipedBedsPatient",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "onNIV",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "onIntubated",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "jumboSystemInstalledType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "availableCylinderTypeD7",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "availableCylinderTypeB",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "cylinderAgencyName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cylinderAgencyAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "availableLMOCapacityKL",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "lmoSupplierName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lmoSupplierFrequency",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "lastLmoSuppliedQuantity",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "remark",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "audit",
+      "otherEntityRelationshipName": "auditFormSHospGenInfo",
+      "relationshipName": "audit"
+    }
+  ],
+  "entityTableName": "audit_form_s_hosp_gen_info",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210923111346"
+}

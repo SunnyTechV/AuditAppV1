@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+    <!--
+        Added the constraints for entity OxygenConsumptionData.
+    -->
+    <changeSet id="20210923111353-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="audit_id"
+                                 baseTableName="oxygen_consumption_data"
+                                 constraintName="fk_oxygen_consumption_data__audit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="audit"/>
+
+        <addForeignKeyConstraint baseColumnNames="table_details_id"
+                                 baseTableName="oxygen_consumption_data"
+                                 constraintName="fk_oxygen_consumption_data__table_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="table_details"/>
+    </changeSet>
+</databaseChangeLog>

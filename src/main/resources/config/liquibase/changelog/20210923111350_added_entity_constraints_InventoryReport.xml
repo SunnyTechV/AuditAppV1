@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+    <!--
+        Added the constraints for entity InventoryReport.
+    -->
+    <changeSet id="20210923111350-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="audit_id"
+                                 baseTableName="inventory_report"
+                                 constraintName="fk_inventory_report__audit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="audit"/>
+    </changeSet>
+</databaseChangeLog>

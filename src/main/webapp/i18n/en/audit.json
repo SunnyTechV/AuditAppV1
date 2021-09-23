@@ -1,0 +1,42 @@
+{
+  "auditAppV1App": {
+    "audit": {
+      "home": {
+        "title": "Audits",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Audit",
+        "createOrEditLabel": "Create or edit a Audit",
+        "notFound": "No Audits found"
+      },
+      "created": "A new Audit is created with identifier {{ param }}",
+      "updated": "A Audit is updated with identifier {{ param }}",
+      "deleted": "A Audit is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Audit {{ id }}?"
+      },
+      "detail": {
+        "title": "Audit"
+      },
+      "id": "ID",
+      "auditDate": "Audit Date",
+      "hospName": "Hosp Name",
+      "isAuditComplete": "Is Audit Complete",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "remark": "Remark",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "auditPatientMonitoringForm": "Audit Patient Monitoring Form",
+      "auditFormSHospGenInfo": "Audit Form S Hosp Gen Info",
+      "fireElectricalAudit": "Fire Electrical Audit",
+      "annexureAnswers": "Annexure Answers",
+      "invetoryReport": "Invetory Report",
+      "inventorySupplierDetails": "Inventory Supplier Details",
+      "oxygenConsumptionData": "Oxygen Consumption Data"
+    }
+  }
+}

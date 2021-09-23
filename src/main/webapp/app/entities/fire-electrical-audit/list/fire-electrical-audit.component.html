@@ -1,0 +1,460 @@
+<div>
+  <h2 id="page-heading" data-cy="FireElectricalAuditHeading">
+    <span jhiTranslate="auditAppV1App.fireElectricalAudit.home.title"
+      >Fire Electrical Audits</span
+    >
+
+    <div class="d-flex justify-content-end">
+      <button
+        class="btn btn-info mr-2"
+        (click)="loadPage()"
+        [disabled]="isLoading"
+      >
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span
+          jhiTranslate="auditAppV1App.fireElectricalAudit.home.refreshListLabel"
+          >Refresh List</span
+        >
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-fire-electrical-audit"
+        [routerLink]="['/fire-electrical-audit/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="auditAppV1App.fireElectricalAudit.home.createLabel">
+          Create a new Fire Electrical Audit
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div
+    class="alert alert-warning"
+    id="no-result"
+    *ngIf="fireElectricalAudits?.length === 0"
+  >
+    <span jhiTranslate="auditAppV1App.fireElectricalAudit.home.notFound"
+      >No fireElectricalAudits found</span
+    >
+  </div>
+
+  <div
+    class="table-responsive"
+    id="entities"
+    *ngIf="fireElectricalAudits && fireElectricalAudits.length > 0"
+  >
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr
+          jhiSort
+          [(predicate)]="predicate"
+          [(ascending)]="ascending"
+          (sortChange)="loadPage()"
+        >
+          <th scope="col" jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="fireAuditDoneOrnot">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.fireAuditDoneOrnot"
+              >Fire Audit Done Ornot</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="fireAuditDate">
+            <span jhiTranslate="auditAppV1App.fireElectricalAudit.fireAuditDate"
+              >Fire Audit Date</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="fireFaults">
+            <span jhiTranslate="auditAppV1App.fireElectricalAudit.fireFaults"
+              >Fire Faults</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="fireCorrectiveAction">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.fireCorrectiveAction"
+              >Fire Corrective Action</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="fireAuditPlan">
+            <span jhiTranslate="auditAppV1App.fireElectricalAudit.fireAuditPlan"
+              >Fire Audit Plan</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="electricalAuditDone">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.electricalAuditDone"
+              >Electrical Audit Done</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="electricalAuditDate">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.electricalAuditDate"
+              >Electrical Audit Date</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="electricalFaults">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.electricalFaults"
+              >Electrical Faults</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="electricalCorrectiveAction">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.electricalCorrectiveAction"
+              >Electrical Corrective Action</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="electricalAuditInspection">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.electricalAuditInspection"
+              >Electrical Audit Inspection</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="technicalPersonAppoint">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.technicalPersonAppoint"
+              >Technical Person Appoint</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="techPersonname">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.techPersonname"
+              >Tech Personname</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="techPersonMobNo">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.techPersonMobNo"
+              >Tech Person Mob No</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="technicalEngineerName">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.technicalEngineerName"
+              >Technical Engineer Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="technicalEngineerAddress">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.technicalEngineerAddress"
+              >Technical Engineer Address</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="technicalEngineerMob">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.technicalEngineerMob"
+              >Technical Engineer Mob</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="technicalEngineerAlternateMob">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.technicalEngineerAlternateMob"
+              >Technical Engineer Alternate Mob</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="o2HospRequirement">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.o2HospRequirement"
+              >O 2 Hosp Requirement</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="o2HospProjectedRequirement">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.o2HospProjectedRequirement"
+              >O 2 Hosp Projected Requirement</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="saveO2RequirementPossibleMT">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.saveO2RequirementPossibleMT"
+              >Save O 2 Requirement Possible MT</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="monitoringO2ValvesPort">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.monitoringO2ValvesPort"
+              >Monitoring O 2 Valves Port</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="portValvesShutDown">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.portValvesShutDown"
+              >Port Valves Shut Down</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="idPatientDrillDone">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.idPatientDrillDone"
+              >Id Patient Drill Done</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="staffCheckingLeakage">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.staffCheckingLeakage"
+              >Staff Checking Leakage</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="patientO2ReqFinalized">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.patientO2ReqFinalized"
+              >Patient O 2 Req Finalized</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="timeByDoctor">
+            <span jhiTranslate="auditAppV1App.fireElectricalAudit.timeByDoctor"
+              >Time By Doctor</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isLightingInstalled">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.isLightingInstalled"
+              >Is Lighting Installed</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="locLightningArrerstor">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.locLightningArrerstor"
+              >Loc Lightning Arrerstor</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createdBy">
+            <span jhiTranslate="auditAppV1App.fireElectricalAudit.createdBy"
+              >Created By</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createdDate">
+            <span jhiTranslate="auditAppV1App.fireElectricalAudit.createdDate"
+              >Created Date</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <span
+              jhiTranslate="auditAppV1App.fireElectricalAudit.lastModifiedBy"
+              >Last Modified By</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <span jhiTranslate="auditAppV1App.fireElectricalAudit.lastModified"
+              >Last Modified</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <span jhiTranslate="auditAppV1App.fireElectricalAudit.freeField1"
+              >Free Field 1</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <span jhiTranslate="auditAppV1App.fireElectricalAudit.freeField2"
+              >Free Field 2</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <span jhiTranslate="auditAppV1App.fireElectricalAudit.freeField3"
+              >Free Field 3</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <span jhiTranslate="auditAppV1App.fireElectricalAudit.freeField4"
+              >Free Field 4</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="audit.id">
+            <span jhiTranslate="auditAppV1App.fireElectricalAudit.audit"
+              >Audit</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let fireElectricalAudit of fireElectricalAudits;
+            trackBy: trackId
+          "
+          data-cy="entityTable"
+        >
+          <td>
+            <a
+              [routerLink]="[
+                '/fire-electrical-audit',
+                fireElectricalAudit.id,
+                'view'
+              ]"
+              >{{ fireElectricalAudit.id }}</a
+            >
+          </td>
+          <td>{{ fireElectricalAudit.fireAuditDoneOrnot }}</td>
+          <td>{{ fireElectricalAudit.fireAuditDate | formatMediumDate }}</td>
+          <td>{{ fireElectricalAudit.fireFaults }}</td>
+          <td>{{ fireElectricalAudit.fireCorrectiveAction }}</td>
+          <td>{{ fireElectricalAudit.fireAuditPlan }}</td>
+          <td>{{ fireElectricalAudit.electricalAuditDone }}</td>
+          <td>
+            {{ fireElectricalAudit.electricalAuditDate | formatMediumDate }}
+          </td>
+          <td>{{ fireElectricalAudit.electricalFaults }}</td>
+          <td>{{ fireElectricalAudit.electricalCorrectiveAction }}</td>
+          <td>{{ fireElectricalAudit.electricalAuditInspection }}</td>
+          <td>{{ fireElectricalAudit.technicalPersonAppoint }}</td>
+          <td>{{ fireElectricalAudit.techPersonname }}</td>
+          <td>{{ fireElectricalAudit.techPersonMobNo }}</td>
+          <td>{{ fireElectricalAudit.technicalEngineerName }}</td>
+          <td>{{ fireElectricalAudit.technicalEngineerAddress }}</td>
+          <td>{{ fireElectricalAudit.technicalEngineerMob }}</td>
+          <td>{{ fireElectricalAudit.technicalEngineerAlternateMob }}</td>
+          <td>{{ fireElectricalAudit.o2HospRequirement }}</td>
+          <td>{{ fireElectricalAudit.o2HospProjectedRequirement }}</td>
+          <td>{{ fireElectricalAudit.saveO2RequirementPossibleMT }}</td>
+          <td>{{ fireElectricalAudit.monitoringO2ValvesPort }}</td>
+          <td>{{ fireElectricalAudit.portValvesShutDown }}</td>
+          <td>{{ fireElectricalAudit.idPatientDrillDone }}</td>
+          <td>{{ fireElectricalAudit.staffCheckingLeakage }}</td>
+          <td>{{ fireElectricalAudit.patientO2ReqFinalized }}</td>
+          <td>{{ fireElectricalAudit.timeByDoctor }}</td>
+          <td>{{ fireElectricalAudit.isLightingInstalled }}</td>
+          <td>{{ fireElectricalAudit.locLightningArrerstor }}</td>
+          <td>{{ fireElectricalAudit.createdBy }}</td>
+          <td>{{ fireElectricalAudit.createdDate | formatMediumDate }}</td>
+          <td>{{ fireElectricalAudit.lastModifiedBy }}</td>
+          <td>{{ fireElectricalAudit.lastModified | formatMediumDate }}</td>
+          <td>{{ fireElectricalAudit.freeField1 }}</td>
+          <td>{{ fireElectricalAudit.freeField2 }}</td>
+          <td>{{ fireElectricalAudit.freeField3 }}</td>
+          <td>{{ fireElectricalAudit.freeField4 }}</td>
+          <td>
+            <div *ngIf="fireElectricalAudit.audit">
+              <a
+                [routerLink]="['/audit', fireElectricalAudit.audit?.id, 'view']"
+                >{{ fireElectricalAudit.audit?.id }}</a
+              >
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="[
+                  '/fire-electrical-audit',
+                  fireElectricalAudit.id,
+                  'view'
+                ]"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.view"
+                  >View</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="[
+                  '/fire-electrical-audit',
+                  fireElectricalAudit.id,
+                  'edit'
+                ]"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.edit"
+                  >Edit</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                (click)="delete(fireElectricalAudit)"
+                class="btn btn-danger btn-sm"
+                data-cy="entityDeleteButton"
+              >
+                <fa-icon icon="times"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.delete"
+                  >Delete</span
+                >
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="fireElectricalAudits && fireElectricalAudits.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count
+        [params]="{
+          page: page,
+          totalItems: totalItems,
+          itemsPerPage: itemsPerPage
+        }"
+      ></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

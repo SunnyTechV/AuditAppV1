@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity AuditPatientMonitoringForm.
+    -->
+    <changeSet id="20210923111349-1" author="jhipster">
+        <createTable tableName="audit_patient_monitoring_form">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="ward_no" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="patient_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="bed_no" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_of_admission" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="oxygen_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="six_to_eight_am" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="oxy_six_to_eight_am" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="eight_to_ten_am" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="oxy_eight_to_ten_am" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="ten_to_twelve_am" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="oxy_ten_to_twelve_am" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="twelve_to_tow_pm" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="oxy_twelve_to_tow_pm" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="two_to_four_pm" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="oxy_two_to_four_pm" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="four_to_six_pm" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="oxy_four_to_six_pm" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="six_to_eight_pm" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="oxy_six_to_eight_pm" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="eight_to_ten_pm" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="oxy_eight_to_ten_pm" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="ten_to_twelve_pm" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="oxy_ten_to_twelve_pm" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="twelve_to_two_am" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="oxy_twelve_to_two_am" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="two_to_four_am" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="oxy_two_to_four_am" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="four_to_six_am" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="oxy_four_to_six_am" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="dr_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nurse_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_date" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_1" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_3" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_4" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20210923111349-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/audit_patient_monitoring_form.csv"
+                  separator=";"
+                  tableName="audit_patient_monitoring_form"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="ward_no" type="numeric"/>
+            <column name="patient_name" type="string"/>
+            <column name="bed_no" type="numeric"/>
+            <column name="date_of_admission" type="date"/>
+            <column name="oxygen_type" type="string"/>
+            <column name="six_to_eight_am" type="numeric"/>
+            <column name="oxy_six_to_eight_am" type="numeric"/>
+            <column name="eight_to_ten_am" type="numeric"/>
+            <column name="oxy_eight_to_ten_am" type="numeric"/>
+            <column name="ten_to_twelve_am" type="numeric"/>
+            <column name="oxy_ten_to_twelve_am" type="numeric"/>
+            <column name="twelve_to_tow_pm" type="numeric"/>
+            <column name="oxy_twelve_to_tow_pm" type="numeric"/>
+            <column name="two_to_four_pm" type="numeric"/>
+            <column name="oxy_two_to_four_pm" type="numeric"/>
+            <column name="four_to_six_pm" type="numeric"/>
+            <column name="oxy_four_to_six_pm" type="numeric"/>
+            <column name="six_to_eight_pm" type="numeric"/>
+            <column name="oxy_six_to_eight_pm" type="numeric"/>
+            <column name="eight_to_ten_pm" type="numeric"/>
+            <column name="oxy_eight_to_ten_pm" type="numeric"/>
+            <column name="ten_to_twelve_pm" type="numeric"/>
+            <column name="oxy_ten_to_twelve_pm" type="numeric"/>
+            <column name="twelve_to_two_am" type="numeric"/>
+            <column name="oxy_twelve_to_two_am" type="numeric"/>
+            <column name="two_to_four_am" type="numeric"/>
+            <column name="oxy_two_to_four_am" type="numeric"/>
+            <column name="four_to_six_am" type="numeric"/>
+            <column name="oxy_four_to_six_am" type="numeric"/>
+            <column name="dr_name" type="string"/>
+            <column name="nurse_name" type="string"/>
+            <column name="created_by" type="string"/>
+            <column name="created_date" type="date"/>
+            <column name="last_modified_by" type="string"/>
+            <column name="last_modified" type="date"/>
+            <column name="free_field_1" type="string"/>
+            <column name="free_field_2" type="string"/>
+            <column name="free_field_3" type="string"/>
+            <column name="free_field_4" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

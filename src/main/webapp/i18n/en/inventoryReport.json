@@ -1,0 +1,39 @@
+{
+  "auditAppV1App": {
+    "inventoryReport": {
+      "home": {
+        "title": "Inventory Reports",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Inventory Report",
+        "createOrEditLabel": "Create or edit a Inventory Report",
+        "notFound": "No Inventory Reports found"
+      },
+      "created": "A new Inventory Report is created with identifier {{ param }}",
+      "updated": "A Inventory Report is updated with identifier {{ param }}",
+      "deleted": "A Inventory Report is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Inventory Report {{ id }}?"
+      },
+      "detail": {
+        "title": "Inventory Report"
+      },
+      "id": "ID",
+      "formName": "Form Name",
+      "type": "Type",
+      "subType": "Sub Type",
+      "tableName": "Table Name",
+      "description": "Description",
+      "descriptionParameter": "Description Parameter",
+      "actualAvailable": "Actual Available",
+      "remark": "Remark",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "createdDate": "Created Date",
+      "createdBy": "Created By",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "audit": "Audit"
+    }
+  }
+}

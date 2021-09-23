@@ -1,0 +1,189 @@
+{
+  "name": "FireElectricalAudit",
+  "fields": [
+    {
+      "fieldName": "fireAuditDoneOrnot",
+      "fieldType": "Boolean",
+      "javadoc": "Fire Audit of Hospital has been done?"
+    },
+    {
+      "fieldName": "fireAuditDate",
+      "fieldType": "LocalDate",
+      "javadoc": "If yes Pls.mention Date of fire Audit"
+    },
+    {
+      "fieldName": "fireFaults",
+      "fieldType": "String",
+      "javadoc": "Faults found (if any)"
+    },
+    {
+      "fieldName": "fireCorrectiveAction",
+      "fieldType": "String",
+      "javadoc": "Corrective action taken"
+    },
+    {
+      "fieldName": "fireAuditPlan",
+      "fieldType": "String",
+      "javadoc": "If No audit done, please mention What is the Plan for Audit?"
+    },
+    {
+      "fieldName": "electricalAuditDone",
+      "fieldType": "Boolean",
+      "javadoc": "Electrical Inspection of Hospital has been done?"
+    },
+    {
+      "fieldName": "electricalAuditDate",
+      "fieldType": "LocalDate",
+      "javadoc": "If yes Pls.mention Date of fire Audit"
+    },
+    {
+      "fieldName": "electricalFaults",
+      "fieldType": "String",
+      "javadoc": "Faults found (if any)"
+    },
+    {
+      "fieldName": "electricalCorrectiveAction",
+      "fieldType": "String",
+      "javadoc": "Corrective action taken"
+    },
+    {
+      "fieldName": "electricalAuditInspection",
+      "fieldType": "String",
+      "javadoc": "If No electrical inspection done, please mention What is the Plan for inspection"
+    },
+    {
+      "fieldName": "technicalPersonAppoint",
+      "fieldType": "Boolean",
+      "javadoc": "Appointment of dedicated technical person to check / Monitor Oxygen Pipeline, Cylinders & Tank\\n(24 X 7)"
+    },
+    {
+      "fieldName": "techPersonname",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "techPersonMobNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "technicalEngineerName",
+      "fieldType": "String",
+      "javadoc": "Name of technical Engineer"
+    },
+    {
+      "fieldName": "technicalEngineerAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "technicalEngineerMob",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "technicalEngineerAlternateMob",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "o2HospRequirement",
+      "fieldType": "Double",
+      "javadoc": "Daily Oxygen Requirement by Hospital (In MT) Before Audit"
+    },
+    {
+      "fieldName": "o2HospProjectedRequirement",
+      "fieldType": "Double",
+      "javadoc": "Projected requirement of Oxygen by Hospital (In MT) As per Audit"
+    },
+    {
+      "fieldName": "saveO2RequirementPossibleMT",
+      "fieldType": "Double",
+      "javadoc": "Saving of Oxygen Requirement (In MT) which is possible"
+    },
+    {
+      "fieldName": "monitoringO2ValvesPort",
+      "fieldType": "Boolean",
+      "javadoc": "Whether ward boy / sister is appointed (24 X 7) for monitoring of Oxygen Valves / Ports and patient wise supply?"
+    },
+    {
+      "fieldName": "portValvesShutDown",
+      "fieldType": "Boolean",
+      "javadoc": "Whether Port / Valves is shut down, when patient goes to washroom / Eating"
+    },
+    {
+      "fieldName": "idPatientDrillDone",
+      "fieldType": "Boolean",
+      "javadoc": "Is there patient drill taken for Oxygen Usage?"
+    },
+    {
+      "fieldName": "staffCheckingLeakage",
+      "fieldType": "Boolean",
+      "javadoc": "Are staff Checking Carefully leakages of Oxygen Pipeline Cylinder & Cryogenic tank daily?"
+    },
+    {
+      "fieldName": "patientO2ReqFinalized",
+      "fieldType": "Boolean",
+      "javadoc": "Is patient Oxygen requirement finalized carefully by using prone position after giving sufficient"
+    },
+    {
+      "fieldName": "timeByDoctor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isLightingInstalled",
+      "fieldType": "Boolean",
+      "javadoc": "Are Lightening Arresters available and installed on building?"
+    },
+    {
+      "fieldName": "locLightningArrerstor",
+      "fieldType": "String",
+      "javadoc": "If available, where is it?At Hospital / At Oxygen Cryogenic Tank area"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "audit",
+      "otherEntityRelationshipName": "fireElectricalAudit",
+      "relationshipName": "audit"
+    }
+  ],
+  "entityTableName": "fire_electrical_audit",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210923111354"
+}

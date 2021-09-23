@@ -1,0 +1,325 @@
+<div>
+  <h2 id="page-heading" data-cy="OxygenConsumptionDataHeading">
+    <span jhiTranslate="auditAppV1App.oxygenConsumptionData.home.title"
+      >Oxygen Consumption Data</span
+    >
+
+    <div class="d-flex justify-content-end">
+      <button
+        class="btn btn-info mr-2"
+        (click)="loadPage()"
+        [disabled]="isLoading"
+      >
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span
+          jhiTranslate="auditAppV1App.oxygenConsumptionData.home.refreshListLabel"
+          >Refresh List</span
+        >
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-oxygen-consumption-data"
+        [routerLink]="['/oxygen-consumption-data/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span
+          jhiTranslate="auditAppV1App.oxygenConsumptionData.home.createLabel"
+        >
+          Create a new Oxygen Consumption Data
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div
+    class="alert alert-warning"
+    id="no-result"
+    *ngIf="oxygenConsumptionData?.length === 0"
+  >
+    <span jhiTranslate="auditAppV1App.oxygenConsumptionData.home.notFound"
+      >No oxygenConsumptionData found</span
+    >
+  </div>
+
+  <div
+    class="table-responsive"
+    id="entities"
+    *ngIf="oxygenConsumptionData && oxygenConsumptionData.length > 0"
+  >
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr
+          jhiSort
+          [(predicate)]="predicate"
+          [(ascending)]="ascending"
+          (sortChange)="loadPage()"
+        >
+          <th scope="col" jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="formName">
+            <span jhiTranslate="auditAppV1App.oxygenConsumptionData.formName"
+              >Form Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="type">
+            <span jhiTranslate="auditAppV1App.oxygenConsumptionData.type"
+              >Type</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="subType">
+            <span jhiTranslate="auditAppV1App.oxygenConsumptionData.subType"
+              >Sub Type</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tableName">
+            <span jhiTranslate="auditAppV1App.oxygenConsumptionData.tableName"
+              >Table Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="noofPatients">
+            <span
+              jhiTranslate="auditAppV1App.oxygenConsumptionData.noofPatients"
+              >Noof Patients</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="consumptionLitperMin">
+            <span
+              jhiTranslate="auditAppV1App.oxygenConsumptionData.consumptionLitperMin"
+              >Consumption Litper Min</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="consumptionLitperDay">
+            <span
+              jhiTranslate="auditAppV1App.oxygenConsumptionData.consumptionLitperDay"
+              >Consumption Litper Day</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="consumptionKLitperDay">
+            <span
+              jhiTranslate="auditAppV1App.oxygenConsumptionData.consumptionKLitperDay"
+              >Consumption K Litper Day</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="consumptionTotal">
+            <span
+              jhiTranslate="auditAppV1App.oxygenConsumptionData.consumptionTotal"
+              >Consumption Total</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <span jhiTranslate="auditAppV1App.oxygenConsumptionData.freeField1"
+              >Free Field 1</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <span jhiTranslate="auditAppV1App.oxygenConsumptionData.freeField2"
+              >Free Field 2</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <span jhiTranslate="auditAppV1App.oxygenConsumptionData.freeField3"
+              >Free Field 3</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createdDate">
+            <span jhiTranslate="auditAppV1App.oxygenConsumptionData.createdDate"
+              >Created Date</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createdBy">
+            <span jhiTranslate="auditAppV1App.oxygenConsumptionData.createdBy"
+              >Created By</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <span
+              jhiTranslate="auditAppV1App.oxygenConsumptionData.lastModified"
+              >Last Modified</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <span
+              jhiTranslate="auditAppV1App.oxygenConsumptionData.lastModifiedBy"
+              >Last Modified By</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="audit.id">
+            <span jhiTranslate="auditAppV1App.oxygenConsumptionData.audit"
+              >Audit</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tableDetails.id">
+            <span
+              jhiTranslate="auditAppV1App.oxygenConsumptionData.tableDetails"
+              >Table Details</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let oxygenConsumptionData of oxygenConsumptionData;
+            trackBy: trackId
+          "
+          data-cy="entityTable"
+        >
+          <td>
+            <a
+              [routerLink]="[
+                '/oxygen-consumption-data',
+                oxygenConsumptionData.id,
+                'view'
+              ]"
+              >{{ oxygenConsumptionData.id }}</a
+            >
+          </td>
+          <td>{{ oxygenConsumptionData.formName }}</td>
+          <td>{{ oxygenConsumptionData.type }}</td>
+          <td>{{ oxygenConsumptionData.subType }}</td>
+          <td>{{ oxygenConsumptionData.tableName }}</td>
+          <td>{{ oxygenConsumptionData.noofPatients }}</td>
+          <td>{{ oxygenConsumptionData.consumptionLitperMin }}</td>
+          <td>{{ oxygenConsumptionData.consumptionLitperDay }}</td>
+          <td>{{ oxygenConsumptionData.consumptionKLitperDay }}</td>
+          <td>{{ oxygenConsumptionData.consumptionTotal }}</td>
+          <td>{{ oxygenConsumptionData.freeField1 }}</td>
+          <td>{{ oxygenConsumptionData.freeField2 }}</td>
+          <td>{{ oxygenConsumptionData.freeField3 }}</td>
+          <td>{{ oxygenConsumptionData.createdDate | formatMediumDate }}</td>
+          <td>{{ oxygenConsumptionData.createdBy }}</td>
+          <td>{{ oxygenConsumptionData.lastModified | formatMediumDate }}</td>
+          <td>{{ oxygenConsumptionData.lastModifiedBy }}</td>
+          <td>
+            <div *ngIf="oxygenConsumptionData.audit">
+              <a
+                [routerLink]="[
+                  '/audit',
+                  oxygenConsumptionData.audit?.id,
+                  'view'
+                ]"
+                >{{ oxygenConsumptionData.audit?.id }}</a
+              >
+            </div>
+          </td>
+          <td>
+            <div *ngIf="oxygenConsumptionData.tableDetails">
+              <a
+                [routerLink]="[
+                  '/table-details',
+                  oxygenConsumptionData.tableDetails?.id,
+                  'view'
+                ]"
+                >{{ oxygenConsumptionData.tableDetails?.id }}</a
+              >
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="[
+                  '/oxygen-consumption-data',
+                  oxygenConsumptionData.id,
+                  'view'
+                ]"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.view"
+                  >View</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="[
+                  '/oxygen-consumption-data',
+                  oxygenConsumptionData.id,
+                  'edit'
+                ]"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.edit"
+                  >Edit</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                (click)="delete(oxygenConsumptionData)"
+                class="btn btn-danger btn-sm"
+                data-cy="entityDeleteButton"
+              >
+                <fa-icon icon="times"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.delete"
+                  >Delete</span
+                >
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="oxygenConsumptionData && oxygenConsumptionData.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count
+        [params]="{
+          page: page,
+          totalItems: totalItems,
+          itemsPerPage: itemsPerPage
+        }"
+      ></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

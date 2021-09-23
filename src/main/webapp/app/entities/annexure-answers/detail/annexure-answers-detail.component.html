@@ -1,0 +1,184 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="annexureAnswers">
+      <h2 data-cy="annexureAnswersDetailsHeading">
+        <span jhiTranslate="auditAppV1App.annexureAnswers.detail.title"
+          >Annexure Answers</span
+        >
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ annexureAnswers.id }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureAnswers.formName"
+            >Form Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureAnswers.formName }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureAnswers.type">Type</span>
+        </dt>
+        <dd>
+          <span>{{ annexureAnswers.type }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureAnswers.subType"
+            >Sub Type</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureAnswers.subType }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureAnswers.compliance"
+            >Compliance</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureAnswers.compliance }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureAnswers.comment"
+            >Comment</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureAnswers.comment }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureAnswers.freeField1"
+            >Free Field 1</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureAnswers.freeField1 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureAnswers.freeField2"
+            >Free Field 2</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureAnswers.freeField2 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureAnswers.freeField3"
+            >Free Field 3</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureAnswers.freeField3 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureAnswers.freeField4"
+            >Free Field 4</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureAnswers.freeField4 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureAnswers.remark"
+            >Remark</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureAnswers.remark }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureAnswers.createdDate"
+            >Created Date</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureAnswers.createdDate | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureAnswers.createdBy"
+            >Created By</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureAnswers.createdBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureAnswers.lastModified"
+            >Last Modified</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureAnswers.lastModified | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureAnswers.lastModifiedBy"
+            >Last Modified By</span
+          >
+        </dt>
+        <dd>
+          <span>{{ annexureAnswers.lastModifiedBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureAnswers.audit">Audit</span>
+        </dt>
+        <dd>
+          <div *ngIf="annexureAnswers.audit">
+            <a [routerLink]="['/audit', annexureAnswers.audit?.id, 'view']">{{
+              annexureAnswers.audit?.id
+            }}</a>
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.annexureAnswers.annexureQuestions"
+            >Annexure Questions</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="annexureAnswers.annexureQuestions">
+            <a
+              [routerLink]="[
+                '/annexure-questions',
+                annexureAnswers.annexureQuestions?.id,
+                'view'
+              ]"
+              >{{ annexureAnswers.annexureQuestions?.id }}</a
+            >
+          </div>
+        </dd>
+      </dl>
+
+      <button
+        type="submit"
+        (click)="previousState()"
+        class="btn btn-info"
+        data-cy="entityDetailsBackButton"
+      >
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.back"
+          >Back</span
+        >
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/annexure-answers', annexureAnswers.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.edit"
+          >Edit</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,239 @@
+<div>
+  <h2 id="page-heading" data-cy="TableDetailsHeading">
+    <span jhiTranslate="auditAppV1App.tableDetails.home.title"
+      >Table Details</span
+    >
+
+    <div class="d-flex justify-content-end">
+      <button
+        class="btn btn-info mr-2"
+        (click)="loadPage()"
+        [disabled]="isLoading"
+      >
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="auditAppV1App.tableDetails.home.refreshListLabel"
+          >Refresh List</span
+        >
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-table-details"
+        [routerLink]="['/table-details/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="auditAppV1App.tableDetails.home.createLabel">
+          Create a new Table Details
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div
+    class="alert alert-warning"
+    id="no-result"
+    *ngIf="tableDetails?.length === 0"
+  >
+    <span jhiTranslate="auditAppV1App.tableDetails.home.notFound"
+      >No tableDetails found</span
+    >
+  </div>
+
+  <div
+    class="table-responsive"
+    id="entities"
+    *ngIf="tableDetails && tableDetails.length > 0"
+  >
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr
+          jhiSort
+          [(predicate)]="predicate"
+          [(ascending)]="ascending"
+          (sortChange)="loadPage()"
+        >
+          <th scope="col" jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="formName">
+            <span jhiTranslate="auditAppV1App.tableDetails.formName"
+              >Form Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="type">
+            <span jhiTranslate="auditAppV1App.tableDetails.type">Type</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="subType">
+            <span jhiTranslate="auditAppV1App.tableDetails.subType"
+              >Sub Type</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tableName">
+            <span jhiTranslate="auditAppV1App.tableDetails.tableName"
+              >Table Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <span jhiTranslate="auditAppV1App.tableDetails.description"
+              >Description</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="descriptionParameter">
+            <span jhiTranslate="auditAppV1App.tableDetails.descriptionParameter"
+              >Description Parameter</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <span jhiTranslate="auditAppV1App.tableDetails.freeField1"
+              >Free Field 1</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <span jhiTranslate="auditAppV1App.tableDetails.freeField2"
+              >Free Field 2</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <span jhiTranslate="auditAppV1App.tableDetails.freeField3"
+              >Free Field 3</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createdDate">
+            <span jhiTranslate="auditAppV1App.tableDetails.createdDate"
+              >Created Date</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createdBy">
+            <span jhiTranslate="auditAppV1App.tableDetails.createdBy"
+              >Created By</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <span jhiTranslate="auditAppV1App.tableDetails.lastModified"
+              >Last Modified</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <span jhiTranslate="auditAppV1App.tableDetails.lastModifiedBy"
+              >Last Modified By</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let tableDetails of tableDetails; trackBy: trackId"
+          data-cy="entityTable"
+        >
+          <td>
+            <a [routerLink]="['/table-details', tableDetails.id, 'view']">{{
+              tableDetails.id
+            }}</a>
+          </td>
+          <td>{{ tableDetails.formName }}</td>
+          <td>{{ tableDetails.type }}</td>
+          <td>{{ tableDetails.subType }}</td>
+          <td>{{ tableDetails.tableName }}</td>
+          <td>{{ tableDetails.description }}</td>
+          <td>{{ tableDetails.descriptionParameter }}</td>
+          <td>{{ tableDetails.freeField1 }}</td>
+          <td>{{ tableDetails.freeField2 }}</td>
+          <td>{{ tableDetails.freeField3 }}</td>
+          <td>{{ tableDetails.createdDate | formatMediumDate }}</td>
+          <td>{{ tableDetails.createdBy }}</td>
+          <td>{{ tableDetails.lastModified | formatMediumDate }}</td>
+          <td>{{ tableDetails.lastModifiedBy }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/table-details', tableDetails.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.view"
+                  >View</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/table-details', tableDetails.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.edit"
+                  >Edit</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                (click)="delete(tableDetails)"
+                class="btn btn-danger btn-sm"
+                data-cy="entityDeleteButton"
+              >
+                <fa-icon icon="times"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.delete"
+                  >Delete</span
+                >
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="tableDetails && tableDetails.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count
+        [params]="{
+          page: page,
+          totalItems: totalItems,
+          itemsPerPage: itemsPerPage
+        }"
+      ></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

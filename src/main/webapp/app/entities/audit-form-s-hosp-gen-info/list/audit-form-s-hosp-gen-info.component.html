@@ -1,0 +1,444 @@
+<div>
+  <h2 id="page-heading" data-cy="AuditFormSHospGenInfoHeading">
+    <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.home.title"
+      >Audit Form S Hosp Gen Infos</span
+    >
+
+    <div class="d-flex justify-content-end">
+      <button
+        class="btn btn-info mr-2"
+        (click)="loadPage()"
+        [disabled]="isLoading"
+      >
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span
+          jhiTranslate="auditAppV1App.auditFormSHospGenInfo.home.refreshListLabel"
+          >Refresh List</span
+        >
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="
+          btn btn-primary
+          jh-create-entity
+          create-audit-form-s-hosp-gen-info
+        "
+        [routerLink]="['/audit-form-s-hosp-gen-info/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span
+          jhiTranslate="auditAppV1App.auditFormSHospGenInfo.home.createLabel"
+        >
+          Create a new Audit Form S Hosp Gen Info
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div
+    class="alert alert-warning"
+    id="no-result"
+    *ngIf="auditFormSHospGenInfos?.length === 0"
+  >
+    <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.home.notFound"
+      >No auditFormSHospGenInfos found</span
+    >
+  </div>
+
+  <div
+    class="table-responsive"
+    id="entities"
+    *ngIf="auditFormSHospGenInfos && auditFormSHospGenInfos.length > 0"
+  >
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr
+          jhiSort
+          [(predicate)]="predicate"
+          [(ascending)]="ascending"
+          (sortChange)="loadPage()"
+        >
+          <th scope="col" jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="hospName">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.hospName"
+              >Hosp Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="hospType">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.hospType"
+              >Hosp Type</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="type">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.type"
+              >Type</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="subType">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.subType"
+              >Sub Type</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="formName">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.formName"
+              >Form Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="inchargeName">
+            <span
+              jhiTranslate="auditAppV1App.auditFormSHospGenInfo.inchargeName"
+              >Incharge Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="hospAddress">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.hospAddress"
+              >Hosp Address</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="hospPhoneNo">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.hospPhoneNo"
+              >Hosp Phone No</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="normalBeds">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.normalBeds"
+              >Normal Beds</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="oxygenBeds">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.oxygenBeds"
+              >Oxygen Beds</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="ventilatorBeds">
+            <span
+              jhiTranslate="auditAppV1App.auditFormSHospGenInfo.ventilatorBeds"
+              >Ventilator Beds</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="icuBeds">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.icuBeds"
+              >Icu Beds</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="onCylinderPatient">
+            <span
+              jhiTranslate="auditAppV1App.auditFormSHospGenInfo.onCylinderPatient"
+              >On Cylinder Patient</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="onPipedBedsPatient">
+            <span
+              jhiTranslate="auditAppV1App.auditFormSHospGenInfo.onPipedBedsPatient"
+              >On Piped Beds Patient</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="onNIV">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.onNIV"
+              >On NIV</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="onIntubated">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.onIntubated"
+              >On Intubated</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="jumboSystemInstalledType">
+            <span
+              jhiTranslate="auditAppV1App.auditFormSHospGenInfo.jumboSystemInstalledType"
+              >Jumbo System Installed Type</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="availableCylinderTypeD7">
+            <span
+              jhiTranslate="auditAppV1App.auditFormSHospGenInfo.availableCylinderTypeD7"
+              >Available Cylinder Type D 7</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="availableCylinderTypeB">
+            <span
+              jhiTranslate="auditAppV1App.auditFormSHospGenInfo.availableCylinderTypeB"
+              >Available Cylinder Type B</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cylinderAgencyName">
+            <span
+              jhiTranslate="auditAppV1App.auditFormSHospGenInfo.cylinderAgencyName"
+              >Cylinder Agency Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cylinderAgencyAddress">
+            <span
+              jhiTranslate="auditAppV1App.auditFormSHospGenInfo.cylinderAgencyAddress"
+              >Cylinder Agency Address</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="availableLMOCapacityKL">
+            <span
+              jhiTranslate="auditAppV1App.auditFormSHospGenInfo.availableLMOCapacityKL"
+              >Available LMO Capacity KL</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lmoSupplierName">
+            <span
+              jhiTranslate="auditAppV1App.auditFormSHospGenInfo.lmoSupplierName"
+              >Lmo Supplier Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lmoSupplierFrequency">
+            <span
+              jhiTranslate="auditAppV1App.auditFormSHospGenInfo.lmoSupplierFrequency"
+              >Lmo Supplier Frequency</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastLmoSuppliedQuantity">
+            <span
+              jhiTranslate="auditAppV1App.auditFormSHospGenInfo.lastLmoSuppliedQuantity"
+              >Last Lmo Supplied Quantity</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="remark">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.remark"
+              >Remark</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createdDate">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.createdDate"
+              >Created Date</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createdBy">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.createdBy"
+              >Created By</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <span
+              jhiTranslate="auditAppV1App.auditFormSHospGenInfo.lastModified"
+              >Last Modified</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <span
+              jhiTranslate="auditAppV1App.auditFormSHospGenInfo.lastModifiedBy"
+              >Last Modified By</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.freeField1"
+              >Free Field 1</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.freeField2"
+              >Free Field 2</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.freeField3"
+              >Free Field 3</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.freeField4"
+              >Free Field 4</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="audit.id">
+            <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.audit"
+              >Audit</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let auditFormSHospGenInfo of auditFormSHospGenInfos;
+            trackBy: trackId
+          "
+          data-cy="entityTable"
+        >
+          <td>
+            <a
+              [routerLink]="[
+                '/audit-form-s-hosp-gen-info',
+                auditFormSHospGenInfo.id,
+                'view'
+              ]"
+              >{{ auditFormSHospGenInfo.id }}</a
+            >
+          </td>
+          <td>{{ auditFormSHospGenInfo.hospName }}</td>
+          <td>{{ auditFormSHospGenInfo.hospType }}</td>
+          <td>{{ auditFormSHospGenInfo.type }}</td>
+          <td>{{ auditFormSHospGenInfo.subType }}</td>
+          <td>{{ auditFormSHospGenInfo.formName }}</td>
+          <td>{{ auditFormSHospGenInfo.inchargeName }}</td>
+          <td>{{ auditFormSHospGenInfo.hospAddress }}</td>
+          <td>{{ auditFormSHospGenInfo.hospPhoneNo }}</td>
+          <td>{{ auditFormSHospGenInfo.normalBeds }}</td>
+          <td>{{ auditFormSHospGenInfo.oxygenBeds }}</td>
+          <td>{{ auditFormSHospGenInfo.ventilatorBeds }}</td>
+          <td>{{ auditFormSHospGenInfo.icuBeds }}</td>
+          <td>{{ auditFormSHospGenInfo.onCylinderPatient }}</td>
+          <td>{{ auditFormSHospGenInfo.onPipedBedsPatient }}</td>
+          <td>{{ auditFormSHospGenInfo.onNIV }}</td>
+          <td>{{ auditFormSHospGenInfo.onIntubated }}</td>
+          <td>{{ auditFormSHospGenInfo.jumboSystemInstalledType }}</td>
+          <td>{{ auditFormSHospGenInfo.availableCylinderTypeD7 }}</td>
+          <td>{{ auditFormSHospGenInfo.availableCylinderTypeB }}</td>
+          <td>{{ auditFormSHospGenInfo.cylinderAgencyName }}</td>
+          <td>{{ auditFormSHospGenInfo.cylinderAgencyAddress }}</td>
+          <td>{{ auditFormSHospGenInfo.availableLMOCapacityKL }}</td>
+          <td>{{ auditFormSHospGenInfo.lmoSupplierName }}</td>
+          <td>{{ auditFormSHospGenInfo.lmoSupplierFrequency }}</td>
+          <td>{{ auditFormSHospGenInfo.lastLmoSuppliedQuantity }}</td>
+          <td>{{ auditFormSHospGenInfo.remark }}</td>
+          <td>{{ auditFormSHospGenInfo.createdDate | formatMediumDate }}</td>
+          <td>{{ auditFormSHospGenInfo.createdBy }}</td>
+          <td>{{ auditFormSHospGenInfo.lastModified | formatMediumDate }}</td>
+          <td>{{ auditFormSHospGenInfo.lastModifiedBy }}</td>
+          <td>{{ auditFormSHospGenInfo.freeField1 }}</td>
+          <td>{{ auditFormSHospGenInfo.freeField2 }}</td>
+          <td>{{ auditFormSHospGenInfo.freeField3 }}</td>
+          <td>{{ auditFormSHospGenInfo.freeField4 }}</td>
+          <td>
+            <div *ngIf="auditFormSHospGenInfo.audit">
+              <a
+                [routerLink]="[
+                  '/audit',
+                  auditFormSHospGenInfo.audit?.id,
+                  'view'
+                ]"
+                >{{ auditFormSHospGenInfo.audit?.id }}</a
+              >
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="[
+                  '/audit-form-s-hosp-gen-info',
+                  auditFormSHospGenInfo.id,
+                  'view'
+                ]"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.view"
+                  >View</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="[
+                  '/audit-form-s-hosp-gen-info',
+                  auditFormSHospGenInfo.id,
+                  'edit'
+                ]"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.edit"
+                  >Edit</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                (click)="delete(auditFormSHospGenInfo)"
+                class="btn btn-danger btn-sm"
+                data-cy="entityDeleteButton"
+              >
+                <fa-icon icon="times"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.delete"
+                  >Delete</span
+                >
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="auditFormSHospGenInfos && auditFormSHospGenInfos.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count
+        [params]="{
+          page: page,
+          totalItems: totalItems,
+          itemsPerPage: itemsPerPage
+        }"
+      ></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

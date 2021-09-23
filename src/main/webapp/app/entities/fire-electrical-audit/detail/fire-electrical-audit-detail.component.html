@@ -1,0 +1,466 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="fireElectricalAudit">
+      <h2 data-cy="fireElectricalAuditDetailsHeading">
+        <span jhiTranslate="auditAppV1App.fireElectricalAudit.detail.title"
+          >Fire Electrical Audit</span
+        >
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ fireElectricalAudit.id }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.fireAuditDoneOrnot"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.fireAuditDoneOrnot'
+                | translate
+            "
+            >Fire Audit Done Ornot</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.fireAuditDoneOrnot }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.fireAuditDate"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.fireAuditDate' | translate
+            "
+            >Fire Audit Date</span
+          >
+        </dt>
+        <dd>
+          <span>{{
+            fireElectricalAudit.fireAuditDate | formatMediumDate
+          }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.fireFaults"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.fireFaults' | translate
+            "
+            >Fire Faults</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.fireFaults }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.fireCorrectiveAction"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.fireCorrectiveAction'
+                | translate
+            "
+            >Fire Corrective Action</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.fireCorrectiveAction }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.fireAuditPlan"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.fireAuditPlan' | translate
+            "
+            >Fire Audit Plan</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.fireAuditPlan }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.electricalAuditDone"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.electricalAuditDone'
+                | translate
+            "
+            >Electrical Audit Done</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.electricalAuditDone }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.electricalAuditDate"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.electricalAuditDate'
+                | translate
+            "
+            >Electrical Audit Date</span
+          >
+        </dt>
+        <dd>
+          <span>{{
+            fireElectricalAudit.electricalAuditDate | formatMediumDate
+          }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.electricalFaults"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.electricalFaults'
+                | translate
+            "
+            >Electrical Faults</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.electricalFaults }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.electricalCorrectiveAction"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.electricalCorrectiveAction'
+                | translate
+            "
+            >Electrical Corrective Action</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.electricalCorrectiveAction }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.electricalAuditInspection"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.electricalAuditInspection'
+                | translate
+            "
+            >Electrical Audit Inspection</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.electricalAuditInspection }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.technicalPersonAppoint"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.technicalPersonAppoint'
+                | translate
+            "
+            >Technical Person Appoint</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.technicalPersonAppoint }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.fireElectricalAudit.techPersonname"
+            >Tech Personname</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.techPersonname }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.fireElectricalAudit.techPersonMobNo"
+            >Tech Person Mob No</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.techPersonMobNo }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.technicalEngineerName"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.technicalEngineerName'
+                | translate
+            "
+            >Technical Engineer Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.technicalEngineerName }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.technicalEngineerAddress"
+            >Technical Engineer Address</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.technicalEngineerAddress }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.technicalEngineerMob"
+            >Technical Engineer Mob</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.technicalEngineerMob }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.technicalEngineerAlternateMob"
+            >Technical Engineer Alternate Mob</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.technicalEngineerAlternateMob }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.o2HospRequirement"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.o2HospRequirement'
+                | translate
+            "
+            >O 2 Hosp Requirement</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.o2HospRequirement }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.o2HospProjectedRequirement"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.o2HospProjectedRequirement'
+                | translate
+            "
+            >O 2 Hosp Projected Requirement</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.o2HospProjectedRequirement }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.saveO2RequirementPossibleMT"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.saveO2RequirementPossibleMT'
+                | translate
+            "
+            >Save O 2 Requirement Possible MT</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.saveO2RequirementPossibleMT }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.monitoringO2ValvesPort"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.monitoringO2ValvesPort'
+                | translate
+            "
+            >Monitoring O 2 Valves Port</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.monitoringO2ValvesPort }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.portValvesShutDown"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.portValvesShutDown'
+                | translate
+            "
+            >Port Valves Shut Down</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.portValvesShutDown }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.idPatientDrillDone"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.idPatientDrillDone'
+                | translate
+            "
+            >Id Patient Drill Done</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.idPatientDrillDone }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.staffCheckingLeakage"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.staffCheckingLeakage'
+                | translate
+            "
+            >Staff Checking Leakage</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.staffCheckingLeakage }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.patientO2ReqFinalized"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.patientO2ReqFinalized'
+                | translate
+            "
+            >Patient O 2 Req Finalized</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.patientO2ReqFinalized }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.fireElectricalAudit.timeByDoctor"
+            >Time By Doctor</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.timeByDoctor }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.isLightingInstalled"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.isLightingInstalled'
+                | translate
+            "
+            >Is Lighting Installed</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.isLightingInstalled }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.fireElectricalAudit.locLightningArrerstor"
+            [ngbTooltip]="
+              'auditAppV1App.fireElectricalAudit.help.locLightningArrerstor'
+                | translate
+            "
+            >Loc Lightning Arrerstor</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.locLightningArrerstor }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.fireElectricalAudit.createdBy"
+            >Created By</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.createdBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.fireElectricalAudit.createdDate"
+            >Created Date</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.createdDate | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.fireElectricalAudit.lastModifiedBy"
+            >Last Modified By</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.lastModifiedBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.fireElectricalAudit.lastModified"
+            >Last Modified</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.lastModified | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.fireElectricalAudit.freeField1"
+            >Free Field 1</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.freeField1 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.fireElectricalAudit.freeField2"
+            >Free Field 2</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.freeField2 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.fireElectricalAudit.freeField3"
+            >Free Field 3</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.freeField3 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.fireElectricalAudit.freeField4"
+            >Free Field 4</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fireElectricalAudit.freeField4 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.fireElectricalAudit.audit"
+            >Audit</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="fireElectricalAudit.audit">
+            <a
+              [routerLink]="['/audit', fireElectricalAudit.audit?.id, 'view']"
+              >{{ fireElectricalAudit.audit?.id }}</a
+            >
+          </div>
+        </dd>
+      </dl>
+
+      <button
+        type="submit"
+        (click)="previousState()"
+        class="btn btn-info"
+        data-cy="entityDetailsBackButton"
+      >
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.back"
+          >Back</span
+        >
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="[
+          '/fire-electrical-audit',
+          fireElectricalAudit.id,
+          'edit'
+        ]"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.edit"
+          >Edit</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,494 @@
+<div>
+  <h2 id="page-heading" data-cy="AuditPatientMonitoringFormHeading">
+    <span jhiTranslate="auditAppV1App.auditPatientMonitoringForm.home.title"
+      >Audit Patient Monitoring Forms</span
+    >
+
+    <div class="d-flex justify-content-end">
+      <button
+        class="btn btn-info mr-2"
+        (click)="loadPage()"
+        [disabled]="isLoading"
+      >
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span
+          jhiTranslate="auditAppV1App.auditPatientMonitoringForm.home.refreshListLabel"
+          >Refresh List</span
+        >
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="
+          btn btn-primary
+          jh-create-entity
+          create-audit-patient-monitoring-form
+        "
+        [routerLink]="['/audit-patient-monitoring-form/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span
+          jhiTranslate="auditAppV1App.auditPatientMonitoringForm.home.createLabel"
+        >
+          Create a new Audit Patient Monitoring Form
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div
+    class="alert alert-warning"
+    id="no-result"
+    *ngIf="auditPatientMonitoringForms?.length === 0"
+  >
+    <span jhiTranslate="auditAppV1App.auditPatientMonitoringForm.home.notFound"
+      >No auditPatientMonitoringForms found</span
+    >
+  </div>
+
+  <div
+    class="table-responsive"
+    id="entities"
+    *ngIf="
+      auditPatientMonitoringForms && auditPatientMonitoringForms.length > 0
+    "
+  >
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr
+          jhiSort
+          [(predicate)]="predicate"
+          [(ascending)]="ascending"
+          (sortChange)="loadPage()"
+        >
+          <th scope="col" jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="wardNo">
+            <span jhiTranslate="auditAppV1App.auditPatientMonitoringForm.wardNo"
+              >Ward No</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="patientName">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.patientName"
+              >Patient Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="bedNo">
+            <span jhiTranslate="auditAppV1App.auditPatientMonitoringForm.bedNo"
+              >Bed No</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateOfAdmission">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.dateOfAdmission"
+              >Date Of Admission</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="oxygenType">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxygenType"
+              >Oxygen Type</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="sixToEightAM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.sixToEightAM"
+              >Six To Eight AM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="oxySixToEightAM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxySixToEightAM"
+              >Oxy Six To Eight AM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="eightToTenAM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.eightToTenAM"
+              >Eight To Ten AM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="oxyEightToTenAM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyEightToTenAM"
+              >Oxy Eight To Ten AM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tenToTwelveAM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.tenToTwelveAM"
+              >Ten To Twelve AM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="oxyTenToTwelveAM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyTenToTwelveAM"
+              >Oxy Ten To Twelve AM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="twelveToTowPM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.twelveToTowPM"
+              >Twelve To Tow PM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="oxyTwelveToTowPM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyTwelveToTowPM"
+              >Oxy Twelve To Tow PM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="twoToFourPM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.twoToFourPM"
+              >Two To Four PM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="oxyTwoToFourPM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyTwoToFourPM"
+              >Oxy Two To Four PM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="fourToSixPM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.fourToSixPM"
+              >Four To Six PM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="oxyFourToSixPM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyFourToSixPM"
+              >Oxy Four To Six PM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="sixToEightPM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.sixToEightPM"
+              >Six To Eight PM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="oxySixToEightPM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxySixToEightPM"
+              >Oxy Six To Eight PM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="eightToTenPM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.eightToTenPM"
+              >Eight To Ten PM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="oxyEightToTenPM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyEightToTenPM"
+              >Oxy Eight To Ten PM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tenToTwelvePM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.tenToTwelvePM"
+              >Ten To Twelve PM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="oxyTenToTwelvePM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyTenToTwelvePM"
+              >Oxy Ten To Twelve PM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="twelveToTwoAM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.twelveToTwoAM"
+              >Twelve To Two AM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="oxyTwelveToTwoAM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyTwelveToTwoAM"
+              >Oxy Twelve To Two AM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="twoToFourAM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.twoToFourAM"
+              >Two To Four AM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="oxyTwoToFourAM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyTwoToFourAM"
+              >Oxy Two To Four AM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="fourToSixAM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.fourToSixAM"
+              >Four To Six AM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="oxyFourToSixAM">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.oxyFourToSixAM"
+              >Oxy Four To Six AM</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="drName">
+            <span jhiTranslate="auditAppV1App.auditPatientMonitoringForm.drName"
+              >Dr Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="nurseName">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.nurseName"
+              >Nurse Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createdBy">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.createdBy"
+              >Created By</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createdDate">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.createdDate"
+              >Created Date</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.lastModifiedBy"
+              >Last Modified By</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.lastModified"
+              >Last Modified</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.freeField1"
+              >Free Field 1</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.freeField2"
+              >Free Field 2</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.freeField3"
+              >Free Field 3</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <span
+              jhiTranslate="auditAppV1App.auditPatientMonitoringForm.freeField4"
+              >Free Field 4</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let auditPatientMonitoringForm of auditPatientMonitoringForms;
+            trackBy: trackId
+          "
+          data-cy="entityTable"
+        >
+          <td>
+            <a
+              [routerLink]="[
+                '/audit-patient-monitoring-form',
+                auditPatientMonitoringForm.id,
+                'view'
+              ]"
+              >{{ auditPatientMonitoringForm.id }}</a
+            >
+          </td>
+          <td>{{ auditPatientMonitoringForm.wardNo }}</td>
+          <td>{{ auditPatientMonitoringForm.patientName }}</td>
+          <td>{{ auditPatientMonitoringForm.bedNo }}</td>
+          <td>
+            {{ auditPatientMonitoringForm.dateOfAdmission | formatMediumDate }}
+          </td>
+          <td>{{ auditPatientMonitoringForm.oxygenType }}</td>
+          <td>{{ auditPatientMonitoringForm.sixToEightAM }}</td>
+          <td>{{ auditPatientMonitoringForm.oxySixToEightAM }}</td>
+          <td>{{ auditPatientMonitoringForm.eightToTenAM }}</td>
+          <td>{{ auditPatientMonitoringForm.oxyEightToTenAM }}</td>
+          <td>{{ auditPatientMonitoringForm.tenToTwelveAM }}</td>
+          <td>{{ auditPatientMonitoringForm.oxyTenToTwelveAM }}</td>
+          <td>{{ auditPatientMonitoringForm.twelveToTowPM }}</td>
+          <td>{{ auditPatientMonitoringForm.oxyTwelveToTowPM }}</td>
+          <td>{{ auditPatientMonitoringForm.twoToFourPM }}</td>
+          <td>{{ auditPatientMonitoringForm.oxyTwoToFourPM }}</td>
+          <td>{{ auditPatientMonitoringForm.fourToSixPM }}</td>
+          <td>{{ auditPatientMonitoringForm.oxyFourToSixPM }}</td>
+          <td>{{ auditPatientMonitoringForm.sixToEightPM }}</td>
+          <td>{{ auditPatientMonitoringForm.oxySixToEightPM }}</td>
+          <td>{{ auditPatientMonitoringForm.eightToTenPM }}</td>
+          <td>{{ auditPatientMonitoringForm.oxyEightToTenPM }}</td>
+          <td>{{ auditPatientMonitoringForm.tenToTwelvePM }}</td>
+          <td>{{ auditPatientMonitoringForm.oxyTenToTwelvePM }}</td>
+          <td>{{ auditPatientMonitoringForm.twelveToTwoAM }}</td>
+          <td>{{ auditPatientMonitoringForm.oxyTwelveToTwoAM }}</td>
+          <td>{{ auditPatientMonitoringForm.twoToFourAM }}</td>
+          <td>{{ auditPatientMonitoringForm.oxyTwoToFourAM }}</td>
+          <td>{{ auditPatientMonitoringForm.fourToSixAM }}</td>
+          <td>{{ auditPatientMonitoringForm.oxyFourToSixAM }}</td>
+          <td>{{ auditPatientMonitoringForm.drName }}</td>
+          <td>{{ auditPatientMonitoringForm.nurseName }}</td>
+          <td>{{ auditPatientMonitoringForm.createdBy }}</td>
+          <td>
+            {{ auditPatientMonitoringForm.createdDate | formatMediumDate }}
+          </td>
+          <td>{{ auditPatientMonitoringForm.lastModifiedBy }}</td>
+          <td>
+            {{ auditPatientMonitoringForm.lastModified | formatMediumDate }}
+          </td>
+          <td>{{ auditPatientMonitoringForm.freeField1 }}</td>
+          <td>{{ auditPatientMonitoringForm.freeField2 }}</td>
+          <td>{{ auditPatientMonitoringForm.freeField3 }}</td>
+          <td>{{ auditPatientMonitoringForm.freeField4 }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="[
+                  '/audit-patient-monitoring-form',
+                  auditPatientMonitoringForm.id,
+                  'view'
+                ]"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.view"
+                  >View</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="[
+                  '/audit-patient-monitoring-form',
+                  auditPatientMonitoringForm.id,
+                  'edit'
+                ]"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.edit"
+                  >Edit</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                (click)="delete(auditPatientMonitoringForm)"
+                class="btn btn-danger btn-sm"
+                data-cy="entityDeleteButton"
+              >
+                <fa-icon icon="times"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.delete"
+                  >Delete</span
+                >
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div
+    *ngIf="
+      auditPatientMonitoringForms && auditPatientMonitoringForms.length > 0
+    "
+  >
+    <div class="row justify-content-center">
+      <jhi-item-count
+        [params]="{
+          page: page,
+          totalItems: totalItems,
+          itemsPerPage: itemsPerPage
+        }"
+      ></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

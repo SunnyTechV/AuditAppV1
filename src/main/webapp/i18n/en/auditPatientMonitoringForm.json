@@ -1,0 +1,63 @@
+{
+  "auditAppV1App": {
+    "auditPatientMonitoringForm": {
+      "home": {
+        "title": "Audit Patient Monitoring Forms",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Audit Patient Monitoring Form",
+        "createOrEditLabel": "Create or edit a Audit Patient Monitoring Form",
+        "notFound": "No Audit Patient Monitoring Forms found"
+      },
+      "created": "A new Audit Patient Monitoring Form is created with identifier {{ param }}",
+      "updated": "A Audit Patient Monitoring Form is updated with identifier {{ param }}",
+      "deleted": "A Audit Patient Monitoring Form is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Audit Patient Monitoring Form {{ id }}?"
+      },
+      "detail": {
+        "title": "Audit Patient Monitoring Form"
+      },
+      "id": "ID",
+      "wardNo": "Ward No",
+      "patientName": "Patient Name",
+      "bedNo": "Bed No",
+      "dateOfAdmission": "Date Of Admission",
+      "oxygenType": "Oxygen Type",
+      "sixToEightAM": "Six To Eight AM",
+      "oxySixToEightAM": "Oxy Six To Eight AM",
+      "eightToTenAM": "Eight To Ten AM",
+      "oxyEightToTenAM": "Oxy Eight To Ten AM",
+      "tenToTwelveAM": "Ten To Twelve AM",
+      "oxyTenToTwelveAM": "Oxy Ten To Twelve AM",
+      "twelveToTowPM": "Twelve To Tow PM",
+      "oxyTwelveToTowPM": "Oxy Twelve To Tow PM",
+      "twoToFourPM": "Two To Four PM",
+      "oxyTwoToFourPM": "Oxy Two To Four PM",
+      "fourToSixPM": "Four To Six PM",
+      "oxyFourToSixPM": "Oxy Four To Six PM",
+      "sixToEightPM": "Six To Eight PM",
+      "oxySixToEightPM": "Oxy Six To Eight PM",
+      "eightToTenPM": "Eight To Ten PM",
+      "oxyEightToTenPM": "Oxy Eight To Ten PM",
+      "tenToTwelvePM": "Ten To Twelve PM",
+      "oxyTenToTwelvePM": "Oxy Ten To Twelve PM",
+      "twelveToTwoAM": "Twelve To Two AM",
+      "oxyTwelveToTwoAM": "Oxy Twelve To Two AM",
+      "twoToFourAM": "Two To Four AM",
+      "oxyTwoToFourAM": "Oxy Two To Four AM",
+      "fourToSixAM": "Four To Six AM",
+      "oxyFourToSixAM": "Oxy Four To Six AM",
+      "drName": "Dr Name",
+      "nurseName": "Nurse Name",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModified": "Last Modified",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "audit": "Audit"
+    }
+  }
+}

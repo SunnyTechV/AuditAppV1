@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity AuditFormSHospGenInfo.
+    -->
+    <changeSet id="20210923111346-1" author="jhipster">
+        <createTable tableName="audit_form_s_hosp_gen_info">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="hosp_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="hosp_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="sub_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="form_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="incharge_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="hosp_address" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="hosp_phone_no" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="normal_beds" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="oxygen_beds" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="ventilator_beds" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="icu_beds" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="on_cylinder_patient" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="on_piped_beds_patient" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="on_niv" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="on_intubated" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="jumbo_system_installed_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="available_cylinder_type_d_7" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="available_cylinder_type_b" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="cylinder_agency_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cylinder_agency_address" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="available_lmo_capacity_kl" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="lmo_supplier_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="lmo_supplier_frequency" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_lmo_supplied_quantity" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="remark" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_date" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_1" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_3" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_4" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="audit_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20210923111346-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/audit_form_s_hosp_gen_info.csv"
+                  separator=";"
+                  tableName="audit_form_s_hosp_gen_info"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="hosp_name" type="string"/>
+            <column name="hosp_type" type="string"/>
+            <column name="type" type="string"/>
+            <column name="sub_type" type="string"/>
+            <column name="form_name" type="string"/>
+            <column name="incharge_name" type="string"/>
+            <column name="hosp_address" type="string"/>
+            <column name="hosp_phone_no" type="string"/>
+            <column name="normal_beds" type="numeric"/>
+            <column name="oxygen_beds" type="numeric"/>
+            <column name="ventilator_beds" type="numeric"/>
+            <column name="icu_beds" type="numeric"/>
+            <column name="on_cylinder_patient" type="numeric"/>
+            <column name="on_piped_beds_patient" type="numeric"/>
+            <column name="on_niv" type="numeric"/>
+            <column name="on_intubated" type="numeric"/>
+            <column name="jumbo_system_installed_type" type="string"/>
+            <column name="available_cylinder_type_d_7" type="numeric"/>
+            <column name="available_cylinder_type_b" type="numeric"/>
+            <column name="cylinder_agency_name" type="string"/>
+            <column name="cylinder_agency_address" type="string"/>
+            <column name="available_lmo_capacity_kl" type="numeric"/>
+            <column name="lmo_supplier_name" type="string"/>
+            <column name="lmo_supplier_frequency" type="numeric"/>
+            <column name="last_lmo_supplied_quantity" type="numeric"/>
+            <column name="remark" type="string"/>
+            <column name="created_date" type="date"/>
+            <column name="created_by" type="string"/>
+            <column name="last_modified" type="date"/>
+            <column name="last_modified_by" type="string"/>
+            <column name="free_field_1" type="string"/>
+            <column name="free_field_2" type="string"/>
+            <column name="free_field_3" type="string"/>
+            <column name="free_field_4" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

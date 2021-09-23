@@ -1,0 +1,310 @@
+<div>
+  <h2 id="page-heading" data-cy="InventorySupplierDetailsHeading">
+    <span jhiTranslate="auditAppV1App.inventorySupplierDetails.home.title"
+      >Inventory Supplier Details</span
+    >
+
+    <div class="d-flex justify-content-end">
+      <button
+        class="btn btn-info mr-2"
+        (click)="loadPage()"
+        [disabled]="isLoading"
+      >
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span
+          jhiTranslate="auditAppV1App.inventorySupplierDetails.home.refreshListLabel"
+          >Refresh List</span
+        >
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="
+          btn btn-primary
+          jh-create-entity
+          create-inventory-supplier-details
+        "
+        [routerLink]="['/inventory-supplier-details/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span
+          jhiTranslate="auditAppV1App.inventorySupplierDetails.home.createLabel"
+        >
+          Create a new Inventory Supplier Details
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div
+    class="alert alert-warning"
+    id="no-result"
+    *ngIf="inventorySupplierDetails?.length === 0"
+  >
+    <span jhiTranslate="auditAppV1App.inventorySupplierDetails.home.notFound"
+      >No inventorySupplierDetails found</span
+    >
+  </div>
+
+  <div
+    class="table-responsive"
+    id="entities"
+    *ngIf="inventorySupplierDetails && inventorySupplierDetails.length > 0"
+  >
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr
+          jhiSort
+          [(predicate)]="predicate"
+          [(ascending)]="ascending"
+          (sortChange)="loadPage()"
+        >
+          <th scope="col" jhiSortBy="id">
+            <span jhiTranslate="global.field.id">ID</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="formName">
+            <span jhiTranslate="auditAppV1App.inventorySupplierDetails.formName"
+              >Form Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="type">
+            <span jhiTranslate="auditAppV1App.inventorySupplierDetails.type"
+              >Type</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="subType">
+            <span jhiTranslate="auditAppV1App.inventorySupplierDetails.subType"
+              >Sub Type</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tableName">
+            <span
+              jhiTranslate="auditAppV1App.inventorySupplierDetails.tableName"
+              >Table Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="supplierName">
+            <span
+              jhiTranslate="auditAppV1App.inventorySupplierDetails.supplierName"
+              >Supplier Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="supplierAddress">
+            <span
+              jhiTranslate="auditAppV1App.inventorySupplierDetails.supplierAddress"
+              >Supplier Address</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="supplierContactName">
+            <span
+              jhiTranslate="auditAppV1App.inventorySupplierDetails.supplierContactName"
+              >Supplier Contact Name</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="supplierContactNameNumber">
+            <span
+              jhiTranslate="auditAppV1App.inventorySupplierDetails.supplierContactNameNumber"
+              >Supplier Contact Name Number</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <span
+              jhiTranslate="auditAppV1App.inventorySupplierDetails.freeField1"
+              >Free Field 1</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <span
+              jhiTranslate="auditAppV1App.inventorySupplierDetails.freeField2"
+              >Free Field 2</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <span
+              jhiTranslate="auditAppV1App.inventorySupplierDetails.freeField3"
+              >Free Field 3</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createdDate">
+            <span
+              jhiTranslate="auditAppV1App.inventorySupplierDetails.createdDate"
+              >Created Date</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createdBy">
+            <span
+              jhiTranslate="auditAppV1App.inventorySupplierDetails.createdBy"
+              >Created By</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <span
+              jhiTranslate="auditAppV1App.inventorySupplierDetails.lastModified"
+              >Last Modified</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <span
+              jhiTranslate="auditAppV1App.inventorySupplierDetails.lastModifiedBy"
+              >Last Modified By</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="audit.id">
+            <span jhiTranslate="auditAppV1App.inventorySupplierDetails.audit"
+              >Audit</span
+            >
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let inventorySupplierDetails of inventorySupplierDetails;
+            trackBy: trackId
+          "
+          data-cy="entityTable"
+        >
+          <td>
+            <a
+              [routerLink]="[
+                '/inventory-supplier-details',
+                inventorySupplierDetails.id,
+                'view'
+              ]"
+              >{{ inventorySupplierDetails.id }}</a
+            >
+          </td>
+          <td>{{ inventorySupplierDetails.formName }}</td>
+          <td>{{ inventorySupplierDetails.type }}</td>
+          <td>{{ inventorySupplierDetails.subType }}</td>
+          <td>{{ inventorySupplierDetails.tableName }}</td>
+          <td>{{ inventorySupplierDetails.supplierName }}</td>
+          <td>{{ inventorySupplierDetails.supplierAddress }}</td>
+          <td>{{ inventorySupplierDetails.supplierContactName }}</td>
+          <td>{{ inventorySupplierDetails.supplierContactNameNumber }}</td>
+          <td>{{ inventorySupplierDetails.freeField1 }}</td>
+          <td>{{ inventorySupplierDetails.freeField2 }}</td>
+          <td>{{ inventorySupplierDetails.freeField3 }}</td>
+          <td>{{ inventorySupplierDetails.createdDate | formatMediumDate }}</td>
+          <td>{{ inventorySupplierDetails.createdBy }}</td>
+          <td>
+            {{ inventorySupplierDetails.lastModified | formatMediumDate }}
+          </td>
+          <td>{{ inventorySupplierDetails.lastModifiedBy }}</td>
+          <td>
+            <div *ngIf="inventorySupplierDetails.audit">
+              <a
+                [routerLink]="[
+                  '/audit',
+                  inventorySupplierDetails.audit?.id,
+                  'view'
+                ]"
+                >{{ inventorySupplierDetails.audit?.id }}</a
+              >
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="[
+                  '/inventory-supplier-details',
+                  inventorySupplierDetails.id,
+                  'view'
+                ]"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.view"
+                  >View</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="[
+                  '/inventory-supplier-details',
+                  inventorySupplierDetails.id,
+                  'edit'
+                ]"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.edit"
+                  >Edit</span
+                >
+              </button>
+
+              <button
+                type="submit"
+                (click)="delete(inventorySupplierDetails)"
+                class="btn btn-danger btn-sm"
+                data-cy="entityDeleteButton"
+              >
+                <fa-icon icon="times"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.delete"
+                  >Delete</span
+                >
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="inventorySupplierDetails && inventorySupplierDetails.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count
+        [params]="{
+          page: page,
+          totalItems: totalItems,
+          itemsPerPage: itemsPerPage
+        }"
+      ></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

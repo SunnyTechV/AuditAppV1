@@ -1,0 +1,396 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form
+      name="editForm"
+      role="form"
+      novalidate
+      (ngSubmit)="save()"
+      [formGroup]="editForm"
+    >
+      <h2
+        id="jhi-annexure-answers-heading"
+        data-cy="AnnexureAnswersCreateUpdateHeading"
+        jhiTranslate="auditAppV1App.annexureAnswers.home.createOrEditLabel"
+      >
+        Create or edit a Annexure Answers
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label
+            class="form-control-label"
+            jhiTranslate="global.field.id"
+            for="field_id"
+            >ID</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="id"
+            id="field_id"
+            data-cy="id"
+            formControlName="id"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.annexureAnswers.formName"
+            for="field_formName"
+            >Form Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="formName"
+            id="field_formName"
+            data-cy="formName"
+            formControlName="formName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.annexureAnswers.type"
+            for="field_type"
+            >Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="type"
+            id="field_type"
+            data-cy="type"
+            formControlName="type"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.annexureAnswers.subType"
+            for="field_subType"
+            >Sub Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="subType"
+            id="field_subType"
+            data-cy="subType"
+            formControlName="subType"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.annexureAnswers.compliance"
+            for="field_compliance"
+            >Compliance</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="compliance"
+            id="field_compliance"
+            data-cy="compliance"
+            formControlName="compliance"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.annexureAnswers.comment"
+            for="field_comment"
+            >Comment</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="comment"
+            id="field_comment"
+            data-cy="comment"
+            formControlName="comment"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.annexureAnswers.freeField1"
+            for="field_freeField1"
+            >Free Field 1</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.annexureAnswers.freeField2"
+            for="field_freeField2"
+            >Free Field 2</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.annexureAnswers.freeField3"
+            for="field_freeField3"
+            >Free Field 3</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField3"
+            id="field_freeField3"
+            data-cy="freeField3"
+            formControlName="freeField3"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.annexureAnswers.freeField4"
+            for="field_freeField4"
+            >Free Field 4</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField4"
+            id="field_freeField4"
+            data-cy="freeField4"
+            formControlName="freeField4"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.annexureAnswers.remark"
+            for="field_remark"
+            >Remark</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="remark"
+            id="field_remark"
+            data-cy="remark"
+            formControlName="remark"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.annexureAnswers.createdDate"
+            for="field_createdDate"
+            >Created Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_createdDate"
+              data-cy="createdDate"
+              type="text"
+              class="form-control"
+              name="createdDate"
+              ngbDatepicker
+              #createdDateDp="ngbDatepicker"
+              formControlName="createdDate"
+            />
+            <span class="input-group-append">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="createdDateDp.toggle()"
+              >
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.annexureAnswers.createdBy"
+            for="field_createdBy"
+            >Created By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="createdBy"
+            id="field_createdBy"
+            data-cy="createdBy"
+            formControlName="createdBy"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.annexureAnswers.lastModified"
+            for="field_lastModified"
+            >Last Modified</label
+          >
+          <div class="input-group">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="text"
+              class="form-control"
+              name="lastModified"
+              ngbDatepicker
+              #lastModifiedDp="ngbDatepicker"
+              formControlName="lastModified"
+            />
+            <span class="input-group-append">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="lastModifiedDp.toggle()"
+              >
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.annexureAnswers.lastModifiedBy"
+            for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.annexureAnswers.audit"
+            for="field_audit"
+            >Audit</label
+          >
+          <select
+            class="form-control"
+            id="field_audit"
+            data-cy="audit"
+            name="audit"
+            formControlName="audit"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                auditOption.id === editForm.get('audit')!.value?.id
+                  ? editForm.get('audit')!.value
+                  : auditOption
+              "
+              *ngFor="
+                let auditOption of auditsSharedCollection;
+                trackBy: trackAuditById
+              "
+            >
+              {{ auditOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="auditAppV1App.annexureAnswers.annexureQuestions"
+            for="field_annexureQuestions"
+            >Annexure Questions</label
+          >
+          <select
+            class="form-control"
+            id="field_annexureQuestions"
+            data-cy="annexureQuestions"
+            name="annexureQuestions"
+            formControlName="annexureQuestions"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                annexureQuestionsOption.id ===
+                editForm.get('annexureQuestions')!.value?.id
+                  ? editForm.get('annexureQuestions')!.value
+                  : annexureQuestionsOption
+              "
+              *ngFor="
+                let annexureQuestionsOption of annexureQuestionsSharedCollection;
+                trackBy: trackAnnexureQuestionsById
+              "
+            >
+              {{ annexureQuestionsOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button
+          type="button"
+          id="cancel-save"
+          data-cy="entityCreateCancelButton"
+          class="btn btn-secondary"
+          (click)="previousState()"
+        >
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span
+            jhiTranslate="entity.action.cancel"
+            >Cancel</span
+          >
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span
+            jhiTranslate="entity.action.save"
+            >Save</span
+          >
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

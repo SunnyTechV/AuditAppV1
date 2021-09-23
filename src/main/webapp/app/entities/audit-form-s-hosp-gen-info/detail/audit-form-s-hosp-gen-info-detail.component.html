@@ -1,0 +1,353 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="auditFormSHospGenInfo">
+      <h2 data-cy="auditFormSHospGenInfoDetailsHeading">
+        <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.detail.title"
+          >Audit Form S Hosp Gen Info</span
+        >
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.id }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.hospName"
+            >Hosp Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.hospName }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.hospType"
+            >Hosp Type</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.hospType }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.type"
+            >Type</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.type }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.subType"
+            >Sub Type</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.subType }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.formName"
+            >Form Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.formName }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.inchargeName"
+            >Incharge Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.inchargeName }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.hospAddress"
+            >Hosp Address</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.hospAddress }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.hospPhoneNo"
+            >Hosp Phone No</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.hospPhoneNo }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.normalBeds"
+            >Normal Beds</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.normalBeds }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.oxygenBeds"
+            >Oxygen Beds</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.oxygenBeds }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.ventilatorBeds"
+            >Ventilator Beds</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.ventilatorBeds }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.icuBeds"
+            >Icu Beds</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.icuBeds }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.onCylinderPatient"
+            >On Cylinder Patient</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.onCylinderPatient }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.onPipedBedsPatient"
+            >On Piped Beds Patient</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.onPipedBedsPatient }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.onNIV"
+            >On NIV</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.onNIV }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.onIntubated"
+            >On Intubated</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.onIntubated }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.jumboSystemInstalledType"
+            >Jumbo System Installed Type</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.jumboSystemInstalledType }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.availableCylinderTypeD7"
+            >Available Cylinder Type D 7</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.availableCylinderTypeD7 }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.availableCylinderTypeB"
+            >Available Cylinder Type B</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.availableCylinderTypeB }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.cylinderAgencyName"
+            >Cylinder Agency Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.cylinderAgencyName }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.cylinderAgencyAddress"
+            >Cylinder Agency Address</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.cylinderAgencyAddress }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.availableLMOCapacityKL"
+            >Available LMO Capacity KL</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.availableLMOCapacityKL }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.lmoSupplierName"
+            >Lmo Supplier Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.lmoSupplierName }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.lmoSupplierFrequency"
+            >Lmo Supplier Frequency</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.lmoSupplierFrequency }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.lastLmoSuppliedQuantity"
+            >Last Lmo Supplied Quantity</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.lastLmoSuppliedQuantity }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.remark"
+            >Remark</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.remark }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.createdDate"
+            >Created Date</span
+          >
+        </dt>
+        <dd>
+          <span>{{
+            auditFormSHospGenInfo.createdDate | formatMediumDate
+          }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.createdBy"
+            >Created By</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.createdBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.lastModified"
+            >Last Modified</span
+          >
+        </dt>
+        <dd>
+          <span>{{
+            auditFormSHospGenInfo.lastModified | formatMediumDate
+          }}</span>
+        </dd>
+        <dt>
+          <span
+            jhiTranslate="auditAppV1App.auditFormSHospGenInfo.lastModifiedBy"
+            >Last Modified By</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.lastModifiedBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.freeField1"
+            >Free Field 1</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.freeField1 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.freeField2"
+            >Free Field 2</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.freeField2 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.freeField3"
+            >Free Field 3</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.freeField3 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.freeField4"
+            >Free Field 4</span
+          >
+        </dt>
+        <dd>
+          <span>{{ auditFormSHospGenInfo.freeField4 }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="auditAppV1App.auditFormSHospGenInfo.audit"
+            >Audit</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="auditFormSHospGenInfo.audit">
+            <a
+              [routerLink]="['/audit', auditFormSHospGenInfo.audit?.id, 'view']"
+              >{{ auditFormSHospGenInfo.audit?.id }}</a
+            >
+          </div>
+        </dd>
+      </dl>
+
+      <button
+        type="submit"
+        (click)="previousState()"
+        class="btn btn-info"
+        data-cy="entityDetailsBackButton"
+      >
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.back"
+          >Back</span
+        >
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="[
+          '/audit-form-s-hosp-gen-info',
+          auditFormSHospGenInfo.id,
+          'edit'
+        ]"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span
+          jhiTranslate="entity.action.edit"
+          >Edit</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

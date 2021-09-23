@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity FireElectricalAudit.
+    -->
+    <changeSet id="20210923111354-1" author="jhipster">
+        <createTable tableName="fire_electrical_audit">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="fire_audit_done_ornot" type="boolean" remarks="Fire Audit of Hospital has been done?">
+                <constraints nullable="true" />
+            </column>
+            <column name="fire_audit_date" type="date" remarks="If yes Pls.mention Date of fire Audit">
+                <constraints nullable="true" />
+            </column>
+            <column name="fire_faults" type="varchar(255)" remarks="Faults found (if any)">
+                <constraints nullable="true" />
+            </column>
+            <column name="fire_corrective_action" type="varchar(255)" remarks="Corrective action taken">
+                <constraints nullable="true" />
+            </column>
+            <column name="fire_audit_plan" type="varchar(255)" remarks="If No audit done, please mention What is the Plan for Audit?">
+                <constraints nullable="true" />
+            </column>
+            <column name="electrical_audit_done" type="boolean" remarks="Electrical Inspection of Hospital has been done?">
+                <constraints nullable="true" />
+            </column>
+            <column name="electrical_audit_date" type="date" remarks="If yes Pls.mention Date of fire Audit">
+                <constraints nullable="true" />
+            </column>
+            <column name="electrical_faults" type="varchar(255)" remarks="Faults found (if any)">
+                <constraints nullable="true" />
+            </column>
+            <column name="electrical_corrective_action" type="varchar(255)" remarks="Corrective action taken">
+                <constraints nullable="true" />
+            </column>
+            <column name="electrical_audit_inspection" type="varchar(255)" remarks="If No electrical inspection done, please mention What is the Plan for inspection">
+                <constraints nullable="true" />
+            </column>
+            <column name="technical_person_appoint" type="boolean" remarks="Appointment of dedicated technical person to check / Monitor Oxygen Pipeline, Cylinders &amp; Tank\n(24 X 7)">
+                <constraints nullable="true" />
+            </column>
+            <column name="tech_personname" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="tech_person_mob_no" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="technical_engineer_name" type="varchar(255)" remarks="Name of technical Engineer">
+                <constraints nullable="true" />
+            </column>
+            <column name="technical_engineer_address" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="technical_engineer_mob" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="technical_engineer_alternate_mob" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="o_2_hosp_requirement" type="double" remarks="Daily Oxygen Requirement by Hospital (In MT) Before Audit">
+                <constraints nullable="true" />
+            </column>
+            <column name="o_2_hosp_projected_requirement" type="double" remarks="Projected requirement of Oxygen by Hospital (In MT) As per Audit">
+                <constraints nullable="true" />
+            </column>
+            <column name="save_o_2_requirement_possible_mt" type="double" remarks="Saving of Oxygen Requirement (In MT) which is possible">
+                <constraints nullable="true" />
+            </column>
+            <column name="monitoring_o_2_valves_port" type="boolean" remarks="Whether ward boy / sister is appointed (24 X 7) for monitoring of Oxygen Valves / Ports and patient wise supply?">
+                <constraints nullable="true" />
+            </column>
+            <column name="port_valves_shut_down" type="boolean" remarks="Whether Port / Valves is shut down, when patient goes to washroom / Eating">
+                <constraints nullable="true" />
+            </column>
+            <column name="id_patient_drill_done" type="boolean" remarks="Is there patient drill taken for Oxygen Usage?">
+                <constraints nullable="true" />
+            </column>
+            <column name="staff_checking_leakage" type="boolean" remarks="Are staff Checking Carefully leakages of Oxygen Pipeline Cylinder &amp; Cryogenic tank daily?">
+                <constraints nullable="true" />
+            </column>
+            <column name="patient_o_2_req_finalized" type="boolean" remarks="Is patient Oxygen requirement finalized carefully by using prone position after giving sufficient">
+                <constraints nullable="true" />
+            </column>
+            <column name="time_by_doctor" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_lighting_installed" type="boolean" remarks="Are Lightening Arresters available and installed on building?">
+                <constraints nullable="true" />
+            </column>
+            <column name="loc_lightning_arrerstor" type="varchar(255)" remarks="If available, where is it?At Hospital / At Oxygen Cryogenic Tank area">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_date" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_1" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_3" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_4" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="audit_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20210923111354-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/fire_electrical_audit.csv"
+                  separator=";"
+                  tableName="fire_electrical_audit"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="fire_audit_done_ornot" type="boolean"/>
+            <column name="fire_audit_date" type="date"/>
+            <column name="fire_faults" type="string"/>
+            <column name="fire_corrective_action" type="string"/>
+            <column name="fire_audit_plan" type="string"/>
+            <column name="electrical_audit_done" type="boolean"/>
+            <column name="electrical_audit_date" type="date"/>
+            <column name="electrical_faults" type="string"/>
+            <column name="electrical_corrective_action" type="string"/>
+            <column name="electrical_audit_inspection" type="string"/>
+            <column name="technical_person_appoint" type="boolean"/>
+            <column name="tech_personname" type="string"/>
+            <column name="tech_person_mob_no" type="string"/>
+            <column name="technical_engineer_name" type="string"/>
+            <column name="technical_engineer_address" type="string"/>
+            <column name="technical_engineer_mob" type="string"/>
+            <column name="technical_engineer_alternate_mob" type="string"/>
+            <column name="o_2_hosp_requirement" type="numeric"/>
+            <column name="o_2_hosp_projected_requirement" type="numeric"/>
+            <column name="save_o_2_requirement_possible_mt" type="numeric"/>
+            <column name="monitoring_o_2_valves_port" type="boolean"/>
+            <column name="port_valves_shut_down" type="boolean"/>
+            <column name="id_patient_drill_done" type="boolean"/>
+            <column name="staff_checking_leakage" type="boolean"/>
+            <column name="patient_o_2_req_finalized" type="boolean"/>
+            <column name="time_by_doctor" type="string"/>
+            <column name="is_lighting_installed" type="boolean"/>
+            <column name="loc_lightning_arrerstor" type="string"/>
+            <column name="created_by" type="string"/>
+            <column name="created_date" type="date"/>
+            <column name="last_modified_by" type="string"/>
+            <column name="last_modified" type="date"/>
+            <column name="free_field_1" type="string"/>
+            <column name="free_field_2" type="string"/>
+            <column name="free_field_3" type="string"/>
+            <column name="free_field_4" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>
